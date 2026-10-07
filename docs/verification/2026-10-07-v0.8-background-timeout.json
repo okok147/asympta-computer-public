@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "runtime_version": "0.8.0",
+  "quality_target": "9.5/10",
+  "date": "2026-10-07",
+  "release_gates": {
+    "tests": {
+      "passed": 74,
+      "failed": 0
+    },
+    "npm_audit_vulnerabilities": 0,
+    "git_diff_check": true,
+    "installed_service_version": "0.8.0"
+  },
+  "long_running": {
+    "job_id": "c7f36769-a61c-4e06-9465-cb431e185b1f",
+    "worker_pid": 51473,
+    "worker_generation": 1,
+    "elapsed_seconds": 3663.2613229751587,
+    "status": "completed",
+    "survived_forced_mcp_daemon_sigkill": true,
+    "same_worker_after_reconnect": true
+  },
+  "latency_benchmark": {
+    "artifact": "docs/verification/2026-10-07-v0.8-benchmark.json",
+    "dispatch_manifest_p50_ms": 6.032,
+    "event_append_p50_ms": 7.056,
+    "event_verify_p50_ms": 1.855,
+    "command_node_p50_ms": 42.032,
+    "steering_signal_rtt_p50_ms": 5.108,
+    "scheduler_fixture_speedup": 1.417,
+    "historical_scheduler_speedups": [
+      2.11,
+      2.17,
+      2.4
+    ],
+    "note": "Retains current and historical measurements; no cherry-picking."
+  },
+  "background_visual": {
+    "installed_tool_count": 114,
+    "discovered_tools": [
+      "background_window_info",
+      "screenshot_background_window",
+      "background_click_ui_element",
+      "background_inspect_ui",
+      "background_click",
+      "background_set_ui_value",
+      "background_draw_vector"
+    ],
+    "screenshot_png_bytes": 36479,
+    "semantic_ax_click": {
+      "target_count_before": 0,
+      "target_count_after": 1,
+      "focus_preserved": true,
+      "mouse_injected": false
+    },
+    "visual_coordinate_ax_click": {
+      "target_count_before": 1,
+      "target_count_after": 2,
+      "focus_preserved": true,
+      "mouse_injected": false
+    },
+    "frontmost_app_preserved": "Safari",
+    "drawing": {
+      "points_before": 2000,
+      "points_after": 123,
+      "point_reduction": 0.9385,
+      "render_ms": 8.039,
+      "attention_required": false,
+      "mouse_used": false
+    },
+    "limitation": "Generic arbitrary canvas/game pointer injection is not claimed. If an app exposes no AX/API surface, background interaction returns unsupported rather than stealing focus/mouse."
+  },
+  "timeout_hardening": {
+    "stable_dispatch_long_command_auto_promotes_to_durable_job": true,
+    "live_job_id": "714125e7-3847-4172-85cc-dbe08622306c",
+    "live_job_status": "completed",
+    "command_timeout_limit_days": 7,
+    "request_timeout_is_not_work_timeout": true
+  },
+  "paperie_build35": {
+    "source_commit": "592f4fe",
+    "evidence_commit": "1ab2126",
+    "rounds": [
+      {
+        "round": 1,
+        "cache": "cold",
+        "workers": 4,
+        "xcode_elapsed_s": 45.323
+      },
+      {
+        "round": 2,
+        "cache": "cold",
+        "workers": 8,
+        "xcode_elapsed_s": 29.593
+      },
+      {
+        "round": 3,
+        "cache": "warm",
+        "workers": 8,
+        "xcode_elapsed_s": 26.263
+      }
+    ],
+    "export_s": 4.671,
+    "publish_processing_s": 168.767,
+    "testflight_build_id": "31c4e2b1-66c4-4981-a2ce-38834228ffd0",
+    "processing_state": "VALID",
+    "internal_state": "IN_BETA_TESTING",
+    "group": "Internal",
+    "has_access_to_all_builds": true,
+    "performance_policy": "Use 8 workers (equal to host availableParallelism) and preserve DerivedData for routine archives; do not oversubscribe; keep tests single-worker/single-simulator."
+  },
+  "model_and_device_gates": {
+    "chatgpt": "PASS",
+    "claude": {
+      "status": "BLOCKED_EXTERNAL",
+      "installed_and_mcp_configured": true,
+      "auth_status": {
+        "loggedIn": false,
+        "authMethod": "none"
+      }
+    },
+    "ipad": {
+      "status": "BLOCKED_EXTERNAL",
+      "device": "ok’s iPad",
+      "model": "iPad Air 11-inch (M4)",
+      "devicectl_state": "unavailable",
+      "protocol_level_steering": "PASS"
+    }
+  },
+  "plugin_update": {
+    "package_version": "0.8.0",
+    "github_synced_marketplace_package": true,
+    "stable_dispatch_forward_compatibility": true,
+    "platform_limit": "ChatGPT custom-MCP action snapshots still require platform/admin Refresh when visible schemas change; server cannot bypass this approval boundary."
+  }
+}

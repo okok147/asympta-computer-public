@@ -1,0 +1,20 @@
+{
+  "name": "asympta",
+  "interface": {
+    "displayName": "Asympta"
+  },
+  "plugins": [
+    {
+      "name": "asympta-computer",
+      "source": {
+        "source": "local",
+        "path": "./plugins/asympta-computer"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

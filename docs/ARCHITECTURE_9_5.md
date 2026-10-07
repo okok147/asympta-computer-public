@@ -1,6 +1,6 @@
 # Asympta Computer — 9.5/10 Target Architecture
 
-Asympta Computer v0.7.0 targets a 9.5/10 quality level as a model-neutral MCP runtime for long-running macOS computer and developer workflows. It is designed around one rule: **reuse procedure, never reuse outcome**.
+Asympta Computer v0.8.0 targets a 9.5/10 quality level as a model-neutral MCP runtime for long-running macOS computer and developer workflows. It is designed around one rule: **reuse procedure, never reuse outcome**.
 
 ## Control planes
 
@@ -50,6 +50,8 @@ A job stores:
 
 On server startup, orphaned jobs are reconciled. Restart-safe jobs may spawn a new worker after their lease expires. Unknown or side-effectful jobs are not blindly replayed.
 
+The client request lifetime is intentionally decoupled from the work lifetime. Both normal MCP `tools/call` and stable `asympta_dispatch call` use one durable-execution policy: known long tools are detached automatically, and `run_command` in auto mode promotes when its explicit timeout crosses the configured durable threshold. A client timeout/disconnect therefore does not imply a process timeout.
+
 ### 3. Durable DAG flows
 
 `flow_*` executes a dependency graph rather than a serial todo list.
@@ -92,7 +94,22 @@ Profiles:
 
 Apple signing/release cannot use the same deny-default sandbox as simple repository reads because Xcode/codesign/Keychain depend on broader system services. Those paths use capability isolation rather than claiming a stronger OS sandbox than macOS can actually support.
 
-### 6. Mac ↔ iPad steering
+### 6. Attention-safe background visual control
+
+v0.8 separates **control intent** from the global pointer/focus state.
+
+- `background_window_info` resolves a target window without activating it.
+- `screenshot_background_window` captures the target CGWindow directly.
+- `background_inspect_ui` reads the target Accessibility tree.
+- `background_click_ui_element` invokes AXPress semantically.
+- `background_click` maps a target-window coordinate into the AX tree and presses the smallest pressable element under that point.
+- `background_set_ui_value` changes settable AX values without keyboard typing.
+- `background_draw_vector` renders strokes completely offscreen as SVG with RDP simplification and optional Catmull-Rom smoothing.
+
+The runtime does **not** claim a universal invisible pointer-injection primitive. If an arbitrary game/canvas does not expose an Accessibility/API action, background interaction is unsupported and must not silently fall back to moving the user's mouse or stealing focus.
+
+The live v0.8 harness proved that Safari remained frontmost while a background native app was captured and changed twice (semantic AX press and visual-coordinate AX hit test). The runtime reported `mouse_injected=false`.
+### 7. Mac ↔ iPad steering
 
 A LAN steering endpoint runs separately from the loopback MCP endpoint.
 
@@ -104,11 +121,11 @@ A LAN steering endpoint runs separately from the loopback MCP endpoint.
 
 The steering protocol is browser-compatible, so an iPad can steer a Mac without requiring a custom app. A native iPad client can use the same protocol later.
 
-### 7. Model neutrality
+### 8. Model neutrality
 
 Asympta Computer speaks MCP rather than a model-specific protocol. ChatGPT and Claude Code can point to the same HTTP endpoint. Model account authentication remains owned by each provider.
 
-### 8. Reflection and task families
+### 9. Reflection and task families
 
 Inspired by the public `openai/math` release structure, Asympta groups similar executions into task-family playbooks, preserves versions/observations, and promotes an invariant only after repeated successful evidence.
 
@@ -133,3 +150,5 @@ Independent comparator-style gates validate outcomes instead of treating model c
 5. Credentials remain delegated to native Keychain/CLI stores.
 6. Plugin/client metadata staleness cannot silently change server-side validation.
 7. Audit/event evidence is append-only and independently verifiable.
+8. Request timeout is never treated as permission to restart a consequential operation; reconcile durable state first.
+9. Background UI control must not silently degrade into focus theft or global mouse injection.

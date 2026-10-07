@@ -1,0 +1,43 @@
+{
+  "name": "asympta-computer",
+  "version": "0.8.0",
+  "description": "Durable model-neutral Mac execution: Xcode, GitHub, App Store Connect/TestFlight, long-running DAG flows, steering, audit and reflection.",
+  "author": {
+    "name": "Asympta",
+    "url": "https://github.com/okok147"
+  },
+  "homepage": "https://github.com/okok147/asympta-computer-mcp",
+  "repository": "https://github.com/okok147/asympta-computer-mcp",
+  "license": "Private",
+  "keywords": [
+    "macos",
+    "mcp",
+    "xcode",
+    "testflight",
+    "github",
+    "durable-agents",
+    "computer-use"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Asympta Computer",
+    "shortDescription": "Durable Mac, Xcode, GitHub and TestFlight execution",
+    "longDescription": "Operate an authorized Mac through a durable model-neutral MCP runtime with long-running jobs, dependency-scheduled flows, capability isolation, audit history, iPad steering, Xcode, GitHub and App Store Connect/TestFlight workflows.",
+    "developerName": "Asympta",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/okok147/asympta-computer-mcp",
+    "defaultPrompt": [
+      "Continue the current Asympta task using the fastest verified playbook.",
+      "Build, verify, push, and distribute this Apple app to TestFlight.",
+      "Inspect the active durable tasks and recover anything interrupted."
+    ],
+    "brandColor": "#445198",
+    "screenshots": []
+  }
+}

@@ -1,41 +1,74 @@
-# Asympta Computer v0.7.0 — 9.5/10 Target — 2–3 minute demo script
+# Asympta Computer v0.8.0 — 9.5/10 Target — 2–3 minute demo script
 
-## 0:00–0:20 — One endpoint, two clients
+## 0:00–0:18 — One runtime, replaceable client
 
-Show the same Asympta Computer MCP URL in ChatGPT and Claude Code configuration. Run the stable dispatch manifest and show the server version/schema hash.
+Show ChatGPT connected to Asympta Computer and run the stable dispatch manifest/discovery. Show v0.8.0, the schema hash, and live tool discovery.
 
-Narration: “The model is replaceable. The computer runtime and durable work state are not.”
+Narration: “The model/client is replaceable. Durable computer state is not.”
 
-## 0:20–0:45 — Disconnect-safe long task
+## 0:18–0:42 — >1h work + disconnect/crash survival
 
-Start a durable command or build. Show its job ID and worker PID. Close/restart the MCP daemon, reconnect, then read the same job and show that the detached worker continues.
+Show the completed 61-minute canary evidence: **3663.26 seconds**. Show the same worker/generation surviving a forced MCP daemon SIGKILL and reconnect.
 
-Show the >1-hour canary evidence when available.
+Then start a 30-second-class command through `asympta_dispatch`. Show that it immediately returns a durable job handle instead of occupying one MCP request.
 
-## 0:45–1:10 — Parallel DAG + crash recovery
+## 0:42–1:02 — Parallel DAG + uncertainty fencing
 
-Create a flow with two independent nodes and one join node. Show the two nodes starting together. Kill the flow worker during an idempotent node, resume and show completion. Repeat with a non-idempotent node and show that it becomes `uncertain` instead of being replayed.
+Create a flow with two independent nodes and one join. Show siblings run concurrently and the join waits.
 
-## 1:10–1:30 — iPad steering
+Kill the worker during an idempotent node and resume it. Contrast with a non-idempotent node becoming `uncertain` instead of being replayed blindly.
 
-Open the LAN steering URL on iPad Safari, enter the one-time pairing code, then send pause/resume or a steer note. Show the signal appearing in the Mac flow/event history.
+## 1:02–1:30 — Background visual control without stealing attention
 
-## 1:30–1:50 — Security + audit
+Keep Safari visibly frontmost.
 
-Run `repo_read` capability against the repository, then demonstrate that reading personal Home or writing a file is denied. Run `event_verify` and show a valid hash chain.
+1. Capture the background native harness window.
+2. Inspect its AX tree.
+3. Press `Increment` semantically: target state 0→1.
+4. Click the same button from window-relative visual coordinates: target state 1→2.
+5. Show `focus_preserved=true` and `mouse_injected=false`.
 
-## 1:50–2:20 — Real Apple release
+Then render an offscreen vector curve. Show 2,000 input points simplified to 123 points in about 8 ms with `mouse_used=false`.
 
-Show the Asympta Paperie flow:
+State the boundary explicitly: arbitrary non-AX games/canvases are **not** silently controlled by stealing focus or the global mouse.
 
-GitHub source → Xcode archive → IPA export → App Store Connect upload → TestFlight VALID / IN_BETA_TESTING.
+## 1:30–1:48 — Security + audit
 
-Show timings from the three build rounds and the selected optimized configuration.
+Run `repo_read` against the repository, then demonstrate denied Home access, denied interpreter escape, and denied `git push`.
 
-## 2:20–2:40 — Reflection
+Run `event_verify` and show a valid SHA-256 chain.
 
-Open the generated reflection/playbook. Highlight invariant workflow, current variants, measured avoidable work and the next-run fast path.
+## 1:48–2:13 — Real Apple release + measured response surface
 
-## 2:40–3:00 — Public evidence
+Show Paperie Build 35:
 
-Open the public architecture repository and benchmark JSON. End on the acceptance matrix rather than a marketing claim.
+GitHub `592f4fe` → three signed Xcode archives → IPA export → native `asc` → TestFlight.
+
+Archive timings:
+
+- cold / 4 workers: **45.323 s**
+- cold / 8 workers: **29.593 s**
+- warm / 8 workers: **26.263 s**
+
+Show Build 35 `VALID` + `IN_BETA_TESTING`.
+
+## 2:13–2:33 — Reflection and invariant reuse
+
+Open the task reflection/playbook. Highlight:
+
+- stable invariant: 8 workers + warm DerivedData on this 8-way Mac
+- variants: source/build number, signing/provider state, artifact path
+- final validation is always repeated
+- no previous successful outcome is reused as current evidence
+
+## 2:33–2:50 — iPad steer + model neutrality
+
+Show the paired LAN steering protocol and SSE/signal path. If the physical iPad is unavailable, show the protocol evidence and say the hardware gate is still open.
+
+Show Claude MCP configuration. Do not claim Claude model execution unless `claude auth status` is logged in.
+
+## 2:50–3:00 — Public evidence
+
+Open `okok147/asympta-computer-public`: architecture, acceptance matrix, benchmark JSON, and this demo script.
+
+End on the evidence matrix rather than a marketing claim.

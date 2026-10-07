@@ -1,0 +1,9 @@
+{
+  "name": "asympta-computer",
+  "version": "0.8.0",
+  "description": "Durable model-neutral Mac execution through the Asympta Computer MCP server.",
+  "author": {
+    "name": "Asympta"
+  },
+  "repository": "https://github.com/okok147/asympta-computer-mcp"
+}

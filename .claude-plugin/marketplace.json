@@ -1,0 +1,13 @@
+{
+  "name": "asympta",
+  "owner": {
+    "name": "Asympta"
+  },
+  "plugins": [
+    {
+      "name": "asympta-computer",
+      "source": "./",
+      "description": "Durable Mac/Xcode/GitHub/TestFlight MCP runtime"
+    }
+  ]
+}

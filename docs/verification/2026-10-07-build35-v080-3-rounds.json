@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "runtime_version": "0.8.0",
+  "quality_target": "9.5/10",
+  "paperie_version": "1.0",
+  "build_number": 35,
+  "source_commit": "592f4fe",
+  "host": {
+    "available_parallelism": 8
+  },
+  "current_rounds": [
+    {
+      "round": 1,
+      "cache": "cold",
+      "workers": 4,
+      "xcode_elapsed_ms": 45323,
+      "durable_wall_ms": 45611,
+      "archive": "/private/tmp/Paperie35-R1.xcarchive",
+      "valid": true
+    },
+    {
+      "round": 2,
+      "cache": "cold",
+      "workers": 8,
+      "xcode_elapsed_ms": 29593,
+      "durable_wall_ms": 29894,
+      "archive": "/private/tmp/Paperie35-R2.xcarchive",
+      "valid": true
+    },
+    {
+      "round": 3,
+      "cache": "warm",
+      "workers": 8,
+      "xcode_elapsed_ms": 26263,
+      "durable_wall_ms": 26488,
+      "archive": "/private/tmp/Paperie35-R3.xcarchive",
+      "valid": true
+    }
+  ],
+  "previous_build34": [
+    {
+      "cache": "cold",
+      "workers": 1,
+      "xcode_elapsed_ms": 48691
+    },
+    {
+      "cache": "cold",
+      "workers": 8,
+      "xcode_elapsed_ms": 28586
+    },
+    {
+      "cache": "warm",
+      "workers": 8,
+      "xcode_elapsed_ms": 26103
+    }
+  ],
+  "export": {
+    "elapsed_ms": 4671,
+    "ipa_bytes": 33227407,
+    "bundle": "com.everformlab.AsymptaPaperie",
+    "build": "35",
+    "icloud": [
+      "iCloud.com.everformlab.AsymptaPaperie"
+    ],
+    "get_task_allow": false
+  },
+  "testflight": {
+    "publish_elapsed_ms": 168767,
+    "build_id": "31c4e2b1-66c4-4981-a2ce-38834228ffd0",
+    "processing_state": "VALID",
+    "internal_state": "IN_BETA_TESTING",
+    "group": "Internal",
+    "has_access_to_all_builds": true
+  },
+  "analysis": {
+    "build35_r2_vs_r1_faster_pct": 34.71,
+    "build35_r3_vs_r1_faster_pct": 42.05,
+    "build35_r3_vs_r2_faster_pct": 11.25,
+    "cold_8_worker_mean_ms": 29089.5,
+    "warm_8_worker_mean_ms": 26183,
+    "warm_8_worker_cross_build_range_pct": 0.61,
+    "conclusion": "8 workers plus DerivedData reuse is the stable latency Pareto point on this 8-way host. Do not oversubscribe beyond availableParallelism. Preserve warm DerivedData for routine archives; invalidate only when toolchain/project/cache correctness requires it. Keep tests single-worker/single-simulator for determinism."
+  }
+}
