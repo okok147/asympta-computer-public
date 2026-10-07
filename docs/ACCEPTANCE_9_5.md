@@ -1,6 +1,6 @@
 # Asympta Computer 9.5/10 Quality Acceptance Matrix
 
-Runtime release under evaluation: **v0.10.0**.
+Runtime release under evaluation: **v0.11.0**.
 
 This matrix is evidence-driven. A requirement is PASS only when the stated proof exists.
 
@@ -11,7 +11,7 @@ This matrix is evidence-driven. A requirement is PASS only when the stated proof
 | 3 | Daemon crash recovery | **PASS** | MCP daemon was force-killed and LaunchAgent restarted it; the long-running worker continued. DAG crash regression replays idempotent nodes and fences non-idempotent nodes as `uncertain`. |
 | 4 | Command/event latency benchmark | **PASS** | v0.8 benchmark: dispatch p50 **6.032 ms**, event append **7.056 ms**, event verify **1.855 ms**, Node command **42.032 ms**, steering RTT **5.108 ms**. |
 | 5 | Mac ↔ iPad realtime steer | **PARTIAL / external device gate** | Paired LAN SSE + persistent signals pass and steering service is live. Physical `ok’s iPad` is still `unavailable` in `devicectl`, so device-level proof is not claimed. |
-| 6 | Agent can auto-discover tools | **PASS** | v0.10 adds portable-memory tools on top of the stable dispatch surface; `asympta_dispatch discover` dynamically finds current capabilities even when ChatGPT visible metadata is stale. |
+| 6 | Agent can auto-discover tools | **PASS** | v0.11 defaults to a 2-tool Ultra surface; `asympta_port brief` returns compact intent routes and `asympta_dispatch discover` dynamically exposes any of the 124 hidden capabilities when explicit schema detail is needed. |
 | 7 | Parallel workers + dependency scheduling + multi-agent | **PASS** | Durable DAG scheduler, critical-path priority, crash recovery, and `team_*` capability-aware allocation pass. Current scheduler microbenchmark: **1.42×**; earlier repeated runs: **2.11× / 2.17× / 2.40×**. |
 | 8 | Shell capability/security isolation | **PASS** | `repo_read` sandbox allows repo reads while denying Home access, interpreter escape, and `git push`; release/model paths use explicit capability profiles. |
 | 9 | Every action has audit trail | **PASS** | Every MCP tool action is written to normal audit and SHA-256 hash-chained event history; tamper regression detects modified history. |
@@ -19,12 +19,15 @@ This matrix is evidence-driven. A requirement is PASS only when the stated proof
 | 11 | Real Xcode → GitHub → TestFlight workflow | **PASS** | Paperie Build 35: GitHub source `592f4fe` → three signed archives → IPA export → native `asc` upload → build `31c4e2b1-66c4-4981-a2ce-38834228ffd0` **VALID + IN_BETA_TESTING** in Internal. |
 | 12 | Public architecture + benchmark + 2–3 minute demo | **PASS** | Public evidence repo: `okok147/asympta-computer-public`; private runtime source remains private. |
 
-## Additional v0.10 gates
+## Additional v0.11 gates
 
-- **PASS** — Full pre-deploy regression suite: **86/86** tests.
+- **PASS** — Full pre-deploy regression suite: **95/95** tests with controlled test concurrency; Ultra-focused regression: **8/8**.
+- **PASS** — Ultra schema: **94,629 → 2,276 bytes**, **41.58× compression / 97.59% reduction**, ~569 estimated schema tokens.
+- **PASS** — Tiny-result fixture: tiny status fixture remains **≥10× smaller** through receipt mode; Work-channel poll is exactly **7 bytes**: `{"s":1}`.
+- **PASS** — Compact brief fixture: **1,143 bytes / ~286 estimated tokens**, then unchanged context collapses to a context-id cache hit.
 - **PASS** — `npm audit`: **0 vulnerabilities**.
 - **PASS** — `git diff --check`.
-- **PASS** — Installed service reports **v0.10.0**.
+- **PASS** — Installed v0.11.0 service reports compact mode with **2 exposed / 124 catalog tools**; live `/port` execution returned `{s:1,ref}` and work-id-only polling returned exactly `{"s":1}`.
 - **PASS** — Stable dispatch exposes the current server despite stale client metadata.
 - **PASS** — Every non-control action gets a durable pre-action simulated action/result map.
 - **PASS** — Matching results stay on the fast path; predictive bookkeeping optimized to **5.932 ms p50 / 9.481 ms p95** roundtrip, with post-match bookkeeping **0.440 ms p50**.

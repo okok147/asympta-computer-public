@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "runtime_version": "0.11.0",
+  "date": "2026-10-07",
+  "feature": "ChatGPT-first Ultra compression",
+  "baseline": {
+    "version": "0.10.0",
+    "advertised_tools": 123,
+    "tool_schema_bytes": 93470,
+    "approx_schema_tokens": 23368,
+    "tests": "86/86"
+  },
+  "final": {
+    "catalog_tools": 124,
+    "advertised_tools": 2,
+    "tool_schema_bytes": 2276,
+    "approx_schema_tokens": 569,
+    "schema_compression_x": 41.58,
+    "schema_reduction_percent": 97.59,
+    "receipt_full_fixture_bytes": 344,
+    "receipt_bit_bytes": 34,
+    "receipt_compression_x": 10.12,
+    "receipt_claim": ">=10x on the tiny status fixture; exact ratio varies slightly with runtime status payload",
+    "work_channel_bytes": 7,
+    "work_channel_payload": {
+      "s": 1
+    },
+    "brief_context_bytes": 1143,
+    "brief_approx_tokens": 286,
+    "delta_reuse": true,
+    "tests": "95/95",
+    "ultra_tests": "8/8",
+    "test_concurrency": 4
+  },
+  "latency": {
+    "dispatch_manifest_p50_ms": 3.951,
+    "event_append_p50_ms": 4.013,
+    "event_verify_p50_ms": 2.025,
+    "command_node_p50_ms": 56.309,
+    "steering_rtt_p50_ms": 4.912,
+    "parallel_speedup_x": 1.593
+  },
+  "security": {
+    "npm_audit_vulnerabilities": 0,
+    "git_diff_check_clean": true,
+    "receipt_common_secret_redaction_test": true,
+    "receipt_ttl_days_default": 7,
+    "max_receipts": 2000,
+    "context_cache_max_entries": 256
+  },
+  "invariants": {
+    "hidden_capabilities_preserved": true,
+    "full_compatibility_mode": "ASYMPTA_TOOL_EXPOSURE=full",
+    "stable_dispatch": true,
+    "durable_jobs": true,
+    "predictive_execution": true,
+    "github_portable_memory": true,
+    "local_receipts_not_portable": true,
+    "credentials_excluded": true
+  },
+  "limitation": "These are MCP/context/result compression measurements. They do not claim control over or direct measurement of OpenAI internal ChatGPT Work/Codex token accounting."
+}

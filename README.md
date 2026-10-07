@@ -2,7 +2,17 @@
 
 Public architecture, acceptance evidence, benchmark material, and GitHub-synced plugin package for Asympta Computer.
 
-Runtime release under evaluation: **v0.10.0**.
+Runtime release under evaluation: **v0.11.0**.
+
+## v0.11.0 ChatGPT-first Ultra compression
+
+- Default MCP surface is only `asympta_port` + `asympta_dispatch`; the full **124-capability** catalog remains server-side.
+- Advertised schema dropped from about **93,470 bytes / 23.4k estimated tokens** to **2,276 bytes / 569 estimated tokens**: **41.58× smaller / 97.59% reduction**.
+- Normal execution returns a tiny receipt; Work-style polling by `work_id` can be exactly `{"s":0}` or `{"s":1}` (**7 bytes**).
+- Full results remain in local receipts and expand only when explicitly requested; compact briefs are intent-filtered, cached, and delta-aware.
+- Full compatibility remains available with `ASYMPTA_TOOL_EXPOSURE=full`.
+- Current verification: **95/95 full regression**, **8/8 Ultra regression**, live compact manifest **2 exposed / 124 catalog tools**.
+- These numbers measure MCP-visible schema/context/result compression; they do not claim control over OpenAI internal ChatGPT Work/Codex token accounting.
 
 ## v0.10.0 portable GitHub memory
 

@@ -1,14 +1,22 @@
 # Asympta Computer — 9.5/10 Target Architecture
 
-Asympta Computer v0.10.0 targets a 9.5/10 quality level as a model-neutral MCP runtime for long-running macOS computer and developer workflows. It is designed around two rules: **reuse procedure, never reuse outcome**; and **simulate before action, replan on deviation**.
+Asympta Computer v0.11.0 targets a 9.5/10 quality level as a model-neutral MCP runtime for long-running macOS computer and developer workflows. It is designed around two rules: **reuse procedure, never reuse outcome**; and **simulate before action, replan on deviation**.
+
+## v0.11 Ultra front plane
+
+The default client surface is intentionally tiny. ChatGPT remains the reasoning brain; Asympta exposes only `asympta_port` plus the stable compatibility `asympta_dispatch`. The complete action catalog stays server-side. `brief` selects only intent-relevant memory/work/routes, `call` stores full results locally and normally returns only a receipt, and Work-style polling by `work_id` can collapse to exactly `{"s":0}` or `{"s":1}`. Full typed exposure remains available with `ASYMPTA_TOOL_EXPOSURE=full`.
+
+This design minimizes **model-visible** tool schemas, context, stdout/diff payloads, and repeated handoff state. It does not claim control over provider-internal token accounting.
 
 ## Control planes
 
 ```mermaid
 flowchart LR
-  C[ChatGPT / Claude / MCP client] --> D[Stable asympta_dispatch]
-  C --> M[MCP typed tools]
-  D --> P[Predictive simulation + trap gate]
+  C[ChatGPT / Claude / MCP client] --> U[Ultra asympta_port]
+  C --> D[Stable asympta_dispatch]
+  C -. legacy full mode .-> M[MCP typed tools]
+  U --> P[Predictive simulation + trap gate]
+  D --> P
   M --> P
   P --> R[Capability registry]
   P --> B[External blackboard + continuation capsule]

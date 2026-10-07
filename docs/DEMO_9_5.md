@@ -1,8 +1,8 @@
-# Asympta Computer v0.10.0 — 9.5/10 Target — 2–3 minute demo script
+# Asympta Computer v0.11.0 — 9.5/10 Target — 2–3 minute demo script
 
 ## 0:00–0:18 — One runtime, replaceable client
 
-Show ChatGPT connected to Asympta Computer and run the stable dispatch manifest/discovery. Show v0.10.0, the schema hash, and live tool discovery.
+Show ChatGPT connected to Asympta Computer and run the stable dispatch manifest/discovery. Show v0.11.0, the schema hash, and live tool discovery.
 
 Narration: “The model/client is replaceable. Durable computer state is not.”
 
