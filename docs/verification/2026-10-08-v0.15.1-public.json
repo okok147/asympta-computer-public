@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-08",
+  "version": "0.15.1",
+  "source_repository": "okok147/asympta-computer-mcp",
+  "source_commit": "05282c9",
+  "checks": {
+    "regressions": {
+      "passed": 139,
+      "total": 139,
+      "failed": 0
+    },
+    "node_syntax": "passed",
+    "swift_typecheck": "passed",
+    "git_diff_check": "passed",
+    "git_main_push": "verified"
+  },
+  "deployed_runtime": {
+    "version": "0.15.1",
+    "tool_count": 126,
+    "exposed_tool_count": 2,
+    "schema_hash": "56a7784817f7d690fb97c44455e8634f67f49c420921de1d4e04237633125bb0"
+  },
+  "live_smokes": {
+    "source_search": {
+      "root": "/private/tmp",
+      "created_root_level_needle": true,
+      "found": true,
+      "scanned_files": 198,
+      "bytes_read": 9423788,
+      "scanner_elapsed_ms": 85,
+      "client_wall_ms": 2065,
+      "truncated": true,
+      "truncation_reason": "byte_budget"
+    },
+    "accessibility": {
+      "app": "Safari",
+      "max_elements": 120,
+      "max_depth": 6,
+      "time_budget_ms": 1000,
+      "warm_completed": true,
+      "client_wall_ms": 2034,
+      "cold_concurrent_attempt_timeout_ms": 5000,
+      "known_issue": "one concurrent cold-start call timed out, so cold-path reliability needs separate validation"
+    },
+    "toolchain": {
+      "git": true,
+      "node": true,
+      "xcode": true,
+      "swift": true,
+      "xcode_swift_recovered_from_timeout": true,
+      "verified_success_cache": true
+    }
+  },
+  "source_math": {
+    "url": "https://github.com/openai/math",
+    "source_date": "2026-10-06",
+    "transfer": "heuristic patterns only, separately tested",
+    "scheduler_candidate": "rejected; 0.316% slower total simulated makespan"
+  },
+  "limits": [
+    "Host/client latency is not the scan's internal elapsed time",
+    "Live UI cold-start path not fully verified",
+    "Marketplace/ChatGPT metadata refresh is controlled by the platform"
+  ]
+}

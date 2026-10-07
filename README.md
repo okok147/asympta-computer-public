@@ -2,7 +2,18 @@
 
 Public architecture, acceptance evidence, benchmark material, and GitHub-synced plugin package for Asympta Computer.
 
-Current live-verified release: **v0.15.0**.
+Current deployed runtime: **v0.15.1** (2026-10-08). The native MCP server and GitHub plugin package share the same version; ChatGPT-side connector metadata may still require a platform refresh.
+
+## v0.15.1 Bounded reliability and verified mathematical transfer
+
+- **139/139 automated regressions passed**, plus Node syntax, Swift typecheck, and Git diff validation.
+- The live MCP server reported **126 available capabilities / 2 exposed tools** under stable dispatch, version `0.15.1`.
+- Multiscale source search found a root-level test needle under `/private/tmp`, reporting explicit `byte_budget` truncation instead of hanging. The scanner reported 85 ms internal execution for that one bounded test; this is not end-to-end ChatGPT latency.
+- Safari Accessibility inspection at 120 elements / depth 6 completed in a warm read; one earlier concurrent cold-start attempt timed out at 5 seconds and remains a reliability follow-up, not a clean cold-start pass.
+- Xcode/Swift status probes returned verified installed results with timeout-only retry and success caching. The plugin icon is now an independently hash-checked **512×512 RGBA PNG**.
+- From the October 2026 [OpenAI mathematics release](https://github.com/openai/math), we adapted *localization, bounded search, and independent certificates* as engineering methods. These are analogies independently tested on the product; no mathematical theorem is claimed to directly accelerate the MCP.
+- A trial scheduler that improved proxy criticality scores was **rejected** after making simulated end-to-end DAG runtime 0.316% worse.
+- [v0.15.1 public verification notes](docs/verification/2026-10-08-v0.15.1-public.json).
 
 ## v0.15.0 Verified-frontier orchestration
 

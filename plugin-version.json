@@ -1,15 +1,15 @@
 {
   "plugin": "asympta-computer",
-  "plugin_version": "0.15.0",
-  "server_version": "0.15.0",
+  "plugin_version": "0.15.1",
+  "server_version": "0.15.1",
   "dispatch_version": 1,
   "update_source": "github-marketplace",
   "repository": "okok147/asympta-computer-mcp",
   "branch": "main",
-  "notes": "v0.15.0 adds evidence-constrained frontier selection, independently checked resource-aware orchestration, traceable action/step/process/source-line progress, native serialized Trash safety, and bounded process_read wait semantics; final regression 136/136 passed before promotion.",
+  "notes": "v0.15.1 reliability/display patch: bounded multiscale search, native bounded AX inspection, timeout-only toolchain probe escalation with verified cache, and a 512x512 RGBA plugin/server icon. OpenAI Math transfer experiments retained only changes that improved the measured target; a criticality-sum scheduler packing experiment was rejected after worse DAG makespan.",
   "icon": "./plugins/asympta-computer/assets/asympta-computer-icon.png",
-  "icon_sha256": "bd7638c18b65895263d65a9eeff4422f2890bef656f7fb0c56cba78637f1f28f",
-  "icon_dimensions": "68x68",
+  "icon_sha256": "84bff6a418cf06e5093da5ca29ba927b0a2ea4cd813dd040fc016b78bf43d0eb",
+  "icon_dimensions": "512x512",
   "portable_manifest": "./plugins/asympta-computer/plugin.json",
   "portable_mcp": "./plugins/asympta-computer/mcp.json"
 }
