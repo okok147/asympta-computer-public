@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "runtime_version": "0.12.0",
+  "date": "2026-10-07",
+  "feature": "external Mission/Tasklist wrapper + MCP Apps inline task card",
+  "architecture": {
+    "canonical_task_state": "work_*",
+    "wrapper_fields": [
+      "focus",
+      "done_when",
+      "horizon",
+      "phase"
+    ],
+    "derived_fields": [
+      "state",
+      "percent",
+      "next",
+      "blockers",
+      "task rows"
+    ],
+    "duplicate_step_state": false,
+    "widget_resource": "ui://asympta/mission-tasklist/v1.html",
+    "widget_data_channel": "tool result _meta (hidden from model)"
+  },
+  "verification": {
+    "full_regression": "103/103",
+    "focused_mission_ultra": "15/15",
+    "npm_audit_vulnerabilities": 0,
+    "git_diff_check_clean": true
+  },
+  "mission_benchmark": {
+    "steps": 16,
+    "baseline_work_plus_continuation_bytes": 8136,
+    "baseline_estimated_tokens": 2034,
+    "mission_brief_bytes": 747,
+    "mission_brief_estimated_tokens": 187,
+    "fitted_context_bytes": 653,
+    "fitted_estimated_tokens": 164,
+    "compression_x": 10.89,
+    "reduction_percent": 90.82,
+    "widget_only_hidden_meta_bytes": 2569,
+    "widget_only_equivalent_tokens_if_visible": 643,
+    "widget_only_model_visible": false,
+    "bit_bytes": 19,
+    "bit_payload": {
+      "done": 0,
+      "pct": 44
+    }
+  },
+  "ultra_benchmark": {
+    "catalog_tools": 129,
+    "exposed_tools": 2,
+    "full_schema_bytes": 98756,
+    "visible_schema_bytes": 2546,
+    "schema_compression_x": 38.79,
+    "schema_reduction_percent": 97.42,
+    "visible_schema_estimated_tokens": 637,
+    "receipt_compression_x": 10.12,
+    "work_channel_bytes": 7,
+    "work_channel": {
+      "s": 1
+    },
+    "generic_brief_estimated_tokens": 300,
+    "delta_cache_hit": true
+  },
+  "latency_p50_ms": {
+    "dispatch_manifest": 5.692,
+    "event_append": 6.474,
+    "event_verify": 1.828,
+    "command_node": 46.136,
+    "steering_rtt": 4.997
+  },
+  "scheduling_parallel_speedup_x": 1.795,
+  "live_verification": {
+    "server_version": "0.12.0",
+    "catalog_tools": 129,
+    "exposed_tools": 2,
+    "exposure_mode": "compact",
+    "tasklist_tools_discovered": 5,
+    "mission_brief_estimated_tokens_on_release_work": 168,
+    "ui_resource": "ui://asympta/mission-tasklist/v1.html",
+    "ui_mime": "text/html;profile=mcp-app",
+    "ui_tool_result_bridge": true
+  },
+  "limitation": "Token counts are byte/4 estimates for model-visible MCP payloads. Widget _meta is hidden from the model per ChatGPT MCP Apps semantics. This does not claim control over OpenAI internal Work/Codex accounting."
+}

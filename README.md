@@ -2,7 +2,17 @@
 
 Public architecture, acceptance evidence, benchmark material, and GitHub-synced plugin package for Asympta Computer.
 
-Runtime release under evaluation: **v0.11.0**.
+Runtime release under evaluation: **v0.12.0**.
+
+## v0.12.0 Mission / Tasklist wrapper + inline ChatGPT/Work card
+
+- `work_*` remains the only canonical task graph; Tasklist stores only mission focus, completion criteria, horizon and phase.
+- Progress, next actions and blockers are derived live, so the wrapper cannot drift from actual execution state.
+- With a mission `work_id`, Ultra brief suppresses duplicate normal work/continuation context; historical traps on already-completed steps stay in durable evidence but do not bloat normal resume context.
+- The `asympta_port` tool links to an MCP Apps inline task card. Full checkbox rows are sent through tool-result `_meta`, which ChatGPT keeps hidden from the model.
+- 16-step fixture: full work + continuation ≈ **2,034 estimated tokens**; normal Mission brief ≈ **187**, **10.89× smaller / 90.82% reduction**.
+- Live runtime: **129 catalog / 2 exposed tools**. Final regression: **103/103**; focused Mission+Ultra: **15/15**; audit: 0 vulnerabilities.
+- Public verification: [v0.12 Mission/Tasklist evidence](docs/verification/2026-10-07-v0.12-mission-tasklist.json).
 
 ## v0.11.0 ChatGPT-first Ultra compression
 
@@ -28,6 +38,8 @@ Runtime release under evaluation: **v0.11.0**.
 
 - [Architecture](docs/ARCHITECTURE_9_5.md)
 - [Acceptance matrix](docs/ACCEPTANCE_9_5.md)
+- [v0.12 Mission/Tasklist + inline UI evidence](docs/verification/2026-10-07-v0.12-mission-tasklist.json)
+- [v0.11 Ultra compression evidence](docs/verification/2026-10-07-v0.11-ultra-compression.json)
 - [v0.10 portable memory evidence](docs/verification/2026-10-07-v0.10-portable-memory.json)
 - [v0.9 predictive execution + external blackboard](docs/verification/2026-10-07-v0.9-predictive-blackboard.json)
 - [v0.8 latency benchmark](docs/verification/2026-10-07-v0.8-benchmark.json)
@@ -45,6 +57,7 @@ This repository includes the public-safe portable plugin package:
 - `plugins/asympta-computer/.codex-plugin/plugin.json`
 - `plugins/asympta-computer/.mcp.json`
 - `plugins/asympta-computer/skills/asympta-computer/SKILL.md`
+- `plugins/asympta-computer/ui/mission-tasklist.html`
 - `plugins/asympta-computer/AUTO_UPDATE.md`
 - `plugin-version.json`
 

@@ -1,6 +1,6 @@
 {
   "name": "asympta-computer",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "description": "Durable model-neutral Mac execution with GitHub-authoritative portable memory through the Asympta Computer MCP server.",
   "author": {
     "name": "Asympta"

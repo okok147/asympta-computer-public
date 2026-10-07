@@ -1,6 +1,10 @@
 # Asympta Computer — 9.5/10 Target Architecture
 
-Asympta Computer v0.11.0 targets a 9.5/10 quality level as a model-neutral MCP runtime for long-running macOS computer and developer workflows. It is designed around two rules: **reuse procedure, never reuse outcome**; and **simulate before action, replan on deviation**.
+Asympta Computer v0.12.0 targets a 9.5/10 quality level as a model-neutral MCP runtime for long-running macOS computer and developer workflows. It is designed around two rules: **reuse procedure, never reuse outcome**; and **simulate before action, replan on deviation**.
+
+## v0.12 Mission / Tasklist wrapper
+
+Long-horizon mission tracking is a projection layer over canonical `work_*`, not a second task database. The wrapper persists only stable mission metadata (focus, completion criteria, horizon, phase). Current progress, ready steps and blockers are derived on read. With a `work_id`, Ultra brief uses this compact mission capsule instead of repeating normal work and continuation state; exceptional trap/replan continuation is included only when needed.
 
 ## v0.11 Ultra front plane
 

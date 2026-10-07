@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+:root{color-scheme:light dark;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+*{box-sizing:border-box}
+body{display:none;margin:0;padding:4px;background:transparent;color:CanvasText}
+.card{border:1px solid color-mix(in srgb,CanvasText 16%,transparent);border-radius:16px;padding:14px 14px 12px;background:color-mix(in srgb,Canvas 96%,transparent);max-width:760px}
+.head{display:flex;align-items:center;gap:10px;margin-bottom:5px}
+.title{font-size:15px;font-weight:650;line-height:1.25;flex:1}
+.progress{font-size:12px;opacity:.58;font-variant-numeric:tabular-nums}
+.sub{font-size:12px;line-height:1.35;opacity:.62;margin:0 0 10px}
+.focus{font-size:12px;line-height:1.4;margin:7px 0 10px;padding:8px 10px;border-radius:10px;background:color-mix(in srgb,CanvasText 5%,transparent)}
+.focus b{font-weight:650}
+.list{display:flex;flex-direction:column;gap:7px}
+.row{display:grid;grid-template-columns:18px 1fr;gap:9px;align-items:start;font-size:14px;line-height:1.35}
+.icon{width:16px;height:16px;border:1.4px solid color-mix(in srgb,CanvasText 42%,transparent);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px;font-size:10px}
+.row.passed{opacity:.55}.row.passed .icon{border-color:currentColor}.row.passed .icon:after{content:"✓";font-weight:700}
+.row.progress .icon{border-right-color:transparent;animation:spin .8s linear infinite}
+.row.blocked .icon:after{content:"!";font-weight:800}
+.row.pending .icon:after{content:""}
+@keyframes spin{to{transform:rotate(360deg)}}
+.footer{display:flex;align-items:center;gap:8px;margin-top:11px;padding-top:10px;border-top:1px solid color-mix(in srgb,CanvasText 10%,transparent);font-size:11px;opacity:.65}
+.footer button{appearance:none;border:0;background:transparent;color:inherit;font:inherit;padding:2px 0;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.badge{padding:2px 7px;border-radius:999px;background:color-mix(in srgb,CanvasText 7%,transparent)}
+.empty{font-size:13px;opacity:.58;padding:2px}
+</style>
+</head>
+<body>
+<div id="root" class="card"><div class="empty">Mission state unavailable.</div></div>
+<script>
+const root=document.getElementById("root");
+const pending=new Map();let nextId=1;let latest=null;
+function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]))}
+function missionFrom(result){
+  return result?._meta?.missionTasklist
+    || result?.structuredContent?.tasklist
+    || result?.missionTasklist
+    || null;
+}
+function render(m){
+  if(!m){document.body.style.display="none";return}
+  document.body.style.display="block";
+  latest=m;
+  const tasks=Array.isArray(m.tasklist)?m.tasklist:[];
+  const focus=Array.isArray(m.focus)&&m.focus.length?'<div class="focus"><b>Focus</b> · '+m.focus.map(esc).join(' · ')+'</div>':'';
+  const rows=tasks.map(t=>{
+    const st=t.status==="passed"||t.status==="skipped"?"passed":t.status==="in_progress"?"progress":t.status==="blocked"?"blocked":"pending";
+    return '<div class="row '+st+'"><span class="icon"></span><span>'+esc(t.title||t.id)+'</span></div>';
+  }).join('');
+  const horizon=m.horizon?'<span class="badge">'+esc(m.horizon)+'</span>':'';
+  const phase=m.phase?'<span class="badge">'+esc(m.phase)+'</span>':'';
+  const done=Array.isArray(m.done_when)&&m.done_when.length?' · Done: '+esc(m.done_when.join(' / ')):'';
+  root.innerHTML='<div class="head"><div class="title">'+esc(m.title||"Mission")+'</div><div class="progress">'+esc(m.pct??0)+'%</div></div>'
+    +(m.state?'<div class="sub">'+esc(m.state)+done+'</div>':'')+focus
+    +'<div class="list">'+(rows||'<div class="empty">No task rows.</div>')+'</div>'
+    +'<div class="footer">'+phase+horizon+'<span style="flex:1"></span><button id="refresh">Refresh</button></div>';
+  document.getElementById("refresh")?.addEventListener("click",refresh);
+}
+function request(method,params){
+  const id=nextId++;window.parent.postMessage({jsonrpc:"2.0",id,method,params},"*");
+  return new Promise((resolve,reject)=>pending.set(id,{resolve,reject}));
+}
+async function refresh(){
+  if(!latest?.id)return;
+  try{
+    const out=await request("tools/call",{name:"asympta_dispatch",arguments:{op:"call",action:"tasklist_get",arguments:{work_id:latest.id,detail:"full"}}});
+    render(out?.structuredContent||null);
+  }catch{}
+}
+window.addEventListener("message",event=>{
+  if(event.source!==window.parent)return;
+  const msg=event.data;if(!msg||msg.jsonrpc!=="2.0")return;
+  if(msg.id!==undefined&&pending.has(msg.id)){
+    const p=pending.get(msg.id);pending.delete(msg.id);msg.error?p.reject(msg.error):p.resolve(msg.result);return;
+  }
+  if(msg.method==="ui/notifications/tool-result"){
+    const m=missionFrom(msg.params);if(m)render(m);
+  }
+},{passive:true});
+try{
+  const meta=window.openai?.toolResponseMetadata?.mcp_tool_result?._meta;
+  const initial=meta?.missionTasklist||missionFrom({structuredContent:window.openai?.toolOutput});
+  if(initial)render(initial);
+}catch{}
+</script>
+</body>
+</html>

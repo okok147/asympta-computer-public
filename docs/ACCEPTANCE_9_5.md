@@ -1,6 +1,6 @@
 # Asympta Computer 9.5/10 Quality Acceptance Matrix
 
-Runtime release under evaluation: **v0.11.0**.
+Runtime release under evaluation: **v0.12.0**.
 
 This matrix is evidence-driven. A requirement is PASS only when the stated proof exists.
 
@@ -18,6 +18,18 @@ This matrix is evidence-driven. A requirement is PASS only when the stated proof
 | 10 | GPT + Claude can operate | **BLOCKED EXTERNALLY** | ChatGPT is live. Claude Code is installed and MCP-configured through `model_client`, but `claude auth status` returns `loggedIn:false`; a real Claude model call cannot be honestly marked PASS until the user authenticates Anthropic. |
 | 11 | Real Xcode → GitHub → TestFlight workflow | **PASS** | Paperie Build 35: GitHub source `592f4fe` → three signed archives → IPA export → native `asc` upload → build `31c4e2b1-66c4-4981-a2ce-38834228ffd0` **VALID + IN_BETA_TESTING** in Internal. |
 | 12 | Public architecture + benchmark + 2–3 minute demo | **PASS** | Public evidence repo: `okok147/asympta-computer-public`; private runtime source remains private. |
+
+## Additional v0.12 gates
+
+- **PASS (focused)** — Mission/Tasklist module regression: **5/5**.
+- **PASS (focused)** — Combined Mission + Ultra integration regression: **14/14**.
+- **PASS** — Tasklist is derived over `work_*`; wrapper reports `duplicate_step_state=false`.
+- **PASS** — Normal Tasklist brief path removes redundant normal active-work/continuation payload; exceptional trap/replan continuation remains available.
+- **PASS** — Final full regression **103/103**, focused Mission+Ultra **15/15**, audit 0 vulnerabilities, diff check clean.
+- **PASS** — Historical traps attached only to completed steps remain durable evidence but are filtered out of normal Mission resume context.
+- **PASS** — 16-step long-horizon benchmark: ~2,034 estimated model-visible tokens → ~187, **10.89× / 90.82% reduction**; 2,569 bytes of complete UI rows remain widget-only `_meta`.
+- **PASS** — Live v0.12 service reports **129 catalog / 2 exposed tools**; hidden Tasklist tools discover correctly; raw `tools/list` links `asympta_port` to the Mission MCP App resource; raw `resources/read` serves `text/html;profile=mcp-app` with the standard tool-result bridge.
+- **PENDING PUBLIC SYNC** — Merge verified private runtime to main and sync public plugin/evidence repository.
 
 ## Additional v0.11 gates
 

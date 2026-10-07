@@ -1,4 +1,4 @@
-# Developer integrations — v0.11.0
+# Developer integrations — v0.12.0
 
 ## Execution invariant
 
@@ -9,6 +9,7 @@ Asympta Computer is CLI-first. Developer actions execute directly on the Mac: `x
 | Capability | Tools | Execution |
 |---|---|---|
 | Ultra ChatGPT-first control | `asympta_port`, `asympta_dispatch` | Default client sees only two schemas. `brief` selects bounded context/routes; `call` executes hidden capabilities and stores full results locally; `read` defaults to a 0/1 receipt and can expand only on demand. `ASYMPTA_TOOL_EXPOSURE=full` restores direct typed-tool advertisement. |
+| Mission / Tasklist wrapper | `tasklist_wrap`, `tasklist_get`, `tasklist_update`, `tasklist_list`, `tasklist_stats` | External long-horizon wrapper over canonical `work_*`. Stores only focus/done/horizon/phase; derives percent/next/blockers. Hidden behind Ultra control plane. |
 | Xcode inspection and compilation | `xcode_info`, `xcode_build` | Schemes, build/test/archive, explicit destination and artifact paths. Tests disable parallel simulator execution. |
 | Xcode artifact export | `xcode_export` | `xcodebuild -exportArchive` plus actual artifact existence checks. |
 | GitHub CLI | `github_cli`, `github_context`, existing `git_*` / `github_api_*` | Native `gh` / Git with existing login. `github_context` returns branch, HEAD, dirty state, repository metadata and current PR/check context in one call. |
