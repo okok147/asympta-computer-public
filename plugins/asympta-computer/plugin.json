@@ -1,0 +1,49 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "asympta-computer",
+  "version": "0.9.1",
+  "description": "Durable Mac execution with predictive action simulation, recovery, Xcode, GitHub, TestFlight, background visual control, audit and long-running workflows.",
+  "author": {
+    "name": "Asympta",
+    "url": "https://github.com/okok147"
+  },
+  "homepage": "https://github.com/okok147/asympta-computer-public",
+  "repository": "https://github.com/okok147/asympta-computer-public",
+  "license": "Private",
+  "keywords": [
+    "macos",
+    "mcp",
+    "xcode",
+    "testflight",
+    "github",
+    "computer-use",
+    "durable-agents"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Asympta Computer",
+        "shortDescription": "Durable Mac, Xcode, GitHub and TestFlight execution",
+        "longDescription": "Operate an authorized Mac through a durable predictive MCP runtime with long-running jobs, recovery, background visual control, Xcode, GitHub and App Store Connect/TestFlight workflows.",
+        "developerName": "Asympta",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Interactive",
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://github.com/okok147/asympta-computer-public",
+        "defaultPrompt": [
+          "Continue the current Asympta task using the fastest verified playbook.",
+          "Build, verify, push, and distribute this Apple app to TestFlight.",
+          "Recover interrupted work from the durable continuation capsule."
+        ],
+        "brandColor": "#445198",
+        "screenshots": [],
+        "composerIcon": "./assets/asympta-computer-icon.png",
+        "logo": "./assets/asympta-computer-icon.png",
+        "logoDark": "./assets/asympta-computer-icon.png"
+      }
+    }
+  }
+}
