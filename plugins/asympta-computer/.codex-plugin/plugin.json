@@ -1,6 +1,6 @@
 {
   "name": "asympta-computer",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "Durable model-neutral Mac execution: Xcode, GitHub, App Store Connect/TestFlight, long-running DAG flows, steering, audit and reflection.",
   "author": {
     "name": "Asympta",
@@ -38,6 +38,9 @@
       "Inspect the active durable tasks and recover anything interrupted."
     ],
     "brandColor": "#445198",
-    "screenshots": []
+    "screenshots": [],
+    "composerIcon": "./assets/asympta-computer-icon.png",
+    "logo": "./assets/asympta-computer-icon.png",
+    "logoDark": "./assets/asympta-computer-icon.png"
   }
 }

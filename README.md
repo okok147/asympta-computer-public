@@ -2,7 +2,7 @@
 
 Public architecture, benchmark, acceptance matrix, demo material, and GitHub-synced plugin package for Asympta Computer.
 
-Runtime release under evaluation: **v0.8.0**.
+Runtime release under evaluation: **v0.8.1**.
 
 ## Evidence
 
@@ -29,3 +29,7 @@ A GitHub-synced marketplace can pull package updates on the platform-supported s
 **Platform boundary:** ChatGPT custom-MCP visible action snapshots are still controlled by ChatGPT. Newly changed tool schemas may require workspace/admin Refresh/approval; the server cannot bypass this security boundary.
 
 The private runtime/source repository is intentionally not published here.
+
+## v0.8.1 presentation patch
+
+- Asympta Computer now ships the user-provided puzzle icon as composerIcon, logo, and MCP server/tool icon metadata for chat thinking/process surfaces.
