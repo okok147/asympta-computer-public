@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-07",
+  "release": "v0.15.0",
+  "live_verified": true,
+  "manifest": {
+    "version": "0.15.0",
+    "catalog_tools": 126,
+    "exposed_tools": 2,
+    "exposure_mode": "compact"
+  },
+  "regression": {
+    "tests": 136,
+    "passed": 136,
+    "failed": 0
+  },
+  "structural_verified_read": {
+    "baseline_calls": 24,
+    "candidate_calls": 12,
+    "baseline_response_bytes": 12600,
+    "candidate_response_bytes": 5580,
+    "note": "Response bytes are not platform tokens."
+  },
+  "live_original_paths": {
+    "bare_command": true,
+    "process_stop": true,
+    "private_tmp_trash": true,
+    "process_write": true,
+    "process_read_wait_ms": true
+  },
+  "performance_claim": "No latency speedup claim due shared-host contention during release validation."
+}

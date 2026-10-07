@@ -2,7 +2,21 @@
 
 Public architecture, acceptance evidence, benchmark material, and GitHub-synced plugin package for Asympta Computer.
 
-Runtime release under evaluation: **v0.12.0**.
+Current live-verified release: **v0.15.0**.
+
+## v0.15.0 Verified-frontier orchestration
+
+- Default surface remains **2 exposed tools**; the live internal catalog is **126 capabilities**.
+- Evidence-constrained finite Pareto frontier: quality/verification gates cannot be traded away for latency, response size, or declared memory.
+- Event-driven flow scheduling refills free slots immediately while independently checking dependencies, capacity, resource conflicts, and declared memory budgets.
+- Generator/verifier separation adds capability gates and explicit independent verification evidence.
+- Compact receipts expose bounded action / step / process / latest-line progress; bounded `process_read(wait_ms)` reduces fragile polling.
+- Native serialized Foundation Trash handling passes `/private/tmp` and concurrent same-name preservation tests.
+- Final full regression: **136/136 PASS, 0 fail**; live original-path verification also passed.
+- Verified read path reduced 12 reads from **24 → 12 calls** and **12,600 → 5,580 response bytes**. Response bytes are not model/platform tokens.
+- No latency speedup claim is made because release-time shared-host contention invalidated a fair timing comparison.
+- Public design note: [Verified-frontier orchestration](docs/VERIFIED_FRONTIER.md).
+- Public evidence: [v0.15 release summary](docs/verification/2026-10-07-v0.15.0-public.json).
 
 ## v0.12.0 Mission / Tasklist wrapper + inline ChatGPT/Work card
 
