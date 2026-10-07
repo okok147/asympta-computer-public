@@ -2,7 +2,15 @@
 
 Public architecture, acceptance evidence, benchmark material, and GitHub-synced plugin package for Asympta Computer.
 
-Current deployed runtime: **v0.15.2** (2026-10-08). The live MCP reports 126 internal capabilities and 2 exposed tools; plugin package metadata tracks this runtime. ChatGPT-side display metadata may still require a platform refresh.
+Current deployed runtime: **v0.15.3** (2026-10-08). Live MCP reports 126 internal capabilities, 2 exposed tools, and the unchanged stable dispatch schema hash. The public plugin metadata tracks this runtime; ChatGPT's client-side display cache may still require Refresh.
+
+## v0.15.3 Read-independent work queries and bounded scanning (verified)
+
+- **Canonical timestamp correctness:** `work_*` and `playbook_*` reads no longer refresh persisted `updated_at`; actual updates still advance it. A live duplicate `work_get` probe returned identical timestamps.
+- **Query performance:** bounded 8/16-worker JSON scanning replaces serial per-file reads without introducing a duplicate database or changing existing MCP authorization, tool schema, or ordering behavior. The 500-work synthetic loaded-host comparison measured 10,264.754 ms → 1,691.990 ms (6.07×), but these times were inflated by other workloads and **are not an overall MCP latency claim**.
+- **Full independent verification:** GitHub Actions [run 37697048190](https://github.com/okok147/asympta-computer-mcp/actions/runs/37697048190): macOS **149/149 PASS**, Linux **146/149 PASS** (3 platform-specific skipped), zero failures. Installed Mac focused tests: 7/7 query and 3/3 portable memory passing.
+- **Method transfer only:** [Codd 1970](https://research.ibm.com/publications/a-relational-model-of-data-for-large-shared-data-banks) informs data independence, while [Kaplan et al. 2020](https://arxiv.org/pdf/2001.08361#page=7) informs explicit compute-budget measurements. Their mathematical formulas are not claimed to accelerate MCP directly.
+- [Public verification summary](docs/verification/2026-10-08-v0.15.3-public.json).
 
 ## v0.15.2 Linear DAG failure propagation (verified)
 

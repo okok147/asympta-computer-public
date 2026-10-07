@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-08",
+  "version": "0.15.3",
+  "source_repository": "okok147/asympta-computer-mcp",
+  "source_pull_request": "https://github.com/okok147/asympta-computer-mcp/pull/3",
+  "source_merge_commit": "456a6724c797407ff0972a52aa74eb7e4ed4a854",
+  "ci": {
+    "run": "https://github.com/okok147/asympta-computer-mcp/actions/runs/37697048190",
+    "macos_15": {
+      "total": 149,
+      "passed": 149,
+      "failed": 0,
+      "skipped": 0
+    },
+    "ubuntu_24_04": {
+      "total": 149,
+      "passed": 146,
+      "failed": 0,
+      "skipped": 3
+    },
+    "full_suite_checks": "success",
+    "portable_fixture_fix": "Use runtime os.homedir in test fixture instead of an absolute machine-specific path; redaction assertions remain intact"
+  },
+  "live": {
+    "installed_version": "0.15.3",
+    "internal_tool_count": 126,
+    "exposed_tool_count": 2,
+    "metadata_stale": false,
+    "schema_hash": "56a7784817f7d690fb97c44455e8634f67f49c420921de1d4e04237633125bb0",
+    "launch_agent_health": "success",
+    "local_focused_query_tests": {
+      "passed": 7,
+      "failed": 0
+    },
+    "local_focused_memory_tests": {
+      "passed": 3,
+      "failed": 0
+    },
+    "original_path": "work_get repeated reads have identical canonical updated_at; work_list returns canonical records"
+  },
+  "engineering_changes": {
+    "read_independence": "Canonical updated_at changes on writes, not derived work/playbook reads",
+    "scan": "Bounded 8- or 16-reader in-process JSON selection/projection; no secondary persistent index",
+    "stable_order": "Preserves original source order for timestamp ties and original list filters",
+    "safety": "Unchanged stable MCP schema, authorization, resource claims, and canonical storage"
+  },
+  "benchmarks": {
+    "scope": "Synthetic in-process workload-specific results, NOT total ChatGPT/MCP latency",
+    "file_scan_500": {
+      "sequential_p50_ms": 70.841,
+      "candidate_p50_ms": 20.719,
+      "ratio": 3.42
+    },
+    "work_list_500_shared_host": {
+      "sequential_p50_ms": 10264.754,
+      "candidate_p50_ms": 1691.99,
+      "ratio": 6.07
+    },
+    "caveat": "Private Mac host was heavily loaded; absolute times have large contention and are not global service-level evidence"
+  },
+  "research": [
+    {
+      "title": "A Relational Model of Data for Large Shared Data Banks",
+      "author": "E. F. Codd",
+      "year": 1970,
+      "url": "https://research.ibm.com/publications/a-relational-model-of-data-for-large-shared-data-banks",
+      "transfer": "logical data independence and read-only projection"
+    },
+    {
+      "title": "Scaling Laws for Neural Language Models",
+      "author": "Kaplan et al.",
+      "year": 2020,
+      "url": "https://arxiv.org/pdf/2001.08361#page=7",
+      "transfer": "separate compute-budget measurement by workload; no transplantation of neural LM scaling exponents"
+    }
+  ],
+  "limits": [
+    "Cold concurrent Safari Accessibility timeout remains a separate pre-existing issue",
+    "Observed speedup applies to measured list/scan operations, not a global end-to-end latency claim",
+    "ChatGPT client-side plugin metadata Refresh is platform-controlled and not certified by server manifest"
+  ]
+}
