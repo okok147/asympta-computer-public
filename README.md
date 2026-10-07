@@ -2,7 +2,16 @@
 
 Public architecture, acceptance evidence, benchmark material, and GitHub-synced plugin package for Asympta Computer.
 
-Current deployed runtime: **v0.15.1** (2026-10-08). The native MCP server and GitHub plugin package share the same version; ChatGPT-side connector metadata may still require a platform refresh.
+Current deployed runtime: **v0.15.2** (2026-10-08). The live MCP reports 126 internal capabilities and 2 exposed tools; plugin package metadata tracks this runtime. ChatGPT-side display metadata may still require a platform refresh.
+
+## v0.15.2 Linear DAG failure propagation (verified)
+
+- Replaced repeated failed-dependency scans with reverse-adjacency BFS over pending nodes, with a no-failure fast path. **O(V+E)** failure traversal (500-node maximum flow graph); existing MCP interface, resource checks and authorization behavior unchanged.
+- Full automated suite: **142/142 passed, 0 failed**. The new logic passed **2,000 seeded randomized DAG differential comparisons** against the previous fixed-point algorithm.
+- On a 500-node *reverse-chain failure microbenchmark*, closure median changed from **4.0925 ms to 0.05496 ms (~74.47×)** on the release candidate; the deployed runtime repeat was **4.19675 ms to 0.05992 ms (~70.04×)**. This is **not an overall MCP speedup**. Broad-fanout work improved only ~1.02×.
+- the [2026 exact DFT research](https://github.com/openai/math) provides only methodological inspiration for exploiting structure. No faster floating-point FFT was implemented or claimed.
+- [Public verification summary](docs/verification/2026-10-08-v0.15.2-public.json).
+- The previously observed Safari cold/concurrent AX timeout remains a separate open reliability issue.
 
 ## v0.15.1 Bounded reliability and verified mathematical transfer
 

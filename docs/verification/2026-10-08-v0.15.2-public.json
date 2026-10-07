@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-08",
+  "version": "0.15.2",
+  "repository": "okok147/asympta-computer-mcp",
+  "source_commit": "fffcf71496e0085de0d3fdcff1ae82bd37710e06",
+  "pull_request": "https://github.com/okok147/asympta-computer-mcp/pull/1",
+  "deployment": {
+    "runtime_version": "0.15.2",
+    "internal_capabilities": 126,
+    "exposed_tools": 2,
+    "schema_hash": "56a7784817f7d690fb97c44455e8634f67f49c420921de1d4e04237633125bb0",
+    "live_manifest_verified": true,
+    "service_health_verified": true
+  },
+  "verification": {
+    "full_suite": {
+      "passed": 142,
+      "total": 142,
+      "failed": 0
+    },
+    "randomized_dag_differential_cases": 2000,
+    "node_syntax": "passed",
+    "npm_check": "passed",
+    "git_diff_check": "passed",
+    "live_focused_tests": {
+      "passed": 3,
+      "total": 3,
+      "failed": 0
+    }
+  },
+  "benchmark": {
+    "method": "pure synchronous closure function; 5 median samples of 50 iterations for each fixture",
+    "measurement_scope": "NOT end-to-end MCP latency",
+    "release_candidate": {
+      "reverse_chain_failure_500": {
+        "reference_median_ms": 4.0925,
+        "candidate_median_ms": 0.05496,
+        "ratio": 74.47
+      },
+      "normal_no_failure_500": {
+        "reference_median_ms": 0.02158,
+        "candidate_median_ms": 0.002,
+        "ratio": 10.79
+      },
+      "one_root_wide_failure_500": {
+        "reference_median_ms": 0.03279,
+        "candidate_median_ms": 0.03054,
+        "ratio": 1.07
+      }
+    },
+    "live_runtime_repeat": {
+      "reverse_chain_failure_500": {
+        "reference_median_ms": 4.19675,
+        "candidate_median_ms": 0.05992,
+        "ratio": 70.04
+      },
+      "normal_no_failure_500": {
+        "reference_median_ms": 0.02175,
+        "candidate_median_ms": 0.00229,
+        "ratio": 9.49
+      },
+      "one_root_wide_failure_500": {
+        "reference_median_ms": 0.03275,
+        "candidate_median_ms": 0.03204,
+        "ratio": 1.02
+      }
+    }
+  },
+  "math_research": {
+    "title": "An explicit power saving for the exact discrete Fourier transform",
+    "date": "2026-09-25",
+    "source": "https://github.com/openai/math",
+    "claim": "O(n (log n)^(1-1e-13)) in an exact complex-register model",
+    "relationship": "methodological inspiration only, not direct application or practical FFT acceleration"
+  },
+  "known_limits": [
+    "No end-to-end MCP improvement claimed.",
+    "The OpenAI exact-DFT result is not a floating-point FFT benchmark.",
+    "Intermittent cold concurrent Safari AX timeout remains unverified.",
+    "ChatGPT plugin display/cached metadata may need manual UI Refresh."
+  ]
+}
