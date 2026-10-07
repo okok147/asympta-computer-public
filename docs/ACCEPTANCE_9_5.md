@@ -6,18 +6,18 @@ This file is evidence-driven. A requirement stays **PENDING** until the stated p
 
 | # | Requirement | Status | Evidence gate |
 |---:|---|---|---|
-| 1 | Real long-running task >1h | RUNNING | Detached 61-minute canary job must complete with measured elapsed >3600s |
-| 2 | Client disconnect does not stop task | PARTIAL | Durable detached worker architecture + reconnect test; final live 9.5 disconnect smoke still required |
-| 3 | Daemon crash recovery | PARTIAL | Automated worker-crash/replay/uncertainty tests pass; final installed-daemon live smoke required |
+| 1 | Real long-running task >1h | RUNNING | Detached 61-minute canary `c7f36769-a61c-4e06-9465-cb431e185b1f` is running independently; PASS requires measured elapsed >3600s |
+| 2 | Client disconnect does not stop task | PASS | Live canary survived forced MCP daemon SIGKILL/reconnect with the same worker PID and generation while heartbeat continued |
+| 3 | Daemon crash recovery | PASS | Live MCP daemon SIGKILL recovered through LaunchAgent; DAG crash regression replays idempotent nodes and fences non-idempotent uncertainty; PID-aware lease locks reclaim dead owners immediately |
 | 4 | Command/event latency benchmark | PASS | `docs/verification/2026-10-07-9.5-benchmark.json` |
-| 5 | Mac ↔ iPad realtime steer | PARTIAL | Paired SSE/signal protocol regression passes; physical iPad connection still required for device-level PASS |
-| 6 | Agent auto tool discovery | PASS (source) | `capability_discover` + forward-compatible `asympta_dispatch discover`; installed 9.5 smoke pending |
-| 7 | Parallel workers + dependencies | PASS (source) | DAG flow regression proves sibling parallelism + join ordering + crash recovery |
-| 8 | Shell capability/security isolation | PASS (source) | macOS sandbox regression proves repo read while Home/write are denied; Apple paths use strict logical capabilities |
-| 9 | Every action audit trail | PASS (source) | audit log + hash-chained event history; tamper regression detected |
-| 10 | GPT + Claude model operation | BLOCKED EXTERNALLY | ChatGPT operates current connector. Claude Code 2.1.292 installed and MCP configured, but Anthropic account is not logged in / MCP approval pending |
-| 11 | Real Xcode → GitHub → TestFlight | PASS previously / 9.5 re-run pending | Paperie Build 33 previously VALID + IN_BETA_TESTING; Build 34 9.5 workflow required |
-| 12 | Public architecture + benchmark + 2–3 min demo | IN PROGRESS | Local docs/demo + benchmark exist; public GitHub repo publish pending |
+| 5 | Mac ↔ iPad realtime steer | PARTIAL | LAN paired SSE/signal server is live on port 43111 and protocol regression passes; physical `ok’s iPad` is currently reported `unavailable`, so device-level PASS is not claimed |
+| 6 | Agent auto tool discovery | PASS | Installed v0.7.0 exposes 107 tools locally; stable `asympta_dispatch discover` dynamically found current `flow_*` actions despite stale ChatGPT connector metadata |
+| 7 | Parallel workers + dependencies | PASS | Critical-path DAG scheduler regression passes; benchmark shows 4-worker flow speedup over sequential execution |
+| 8 | Shell capability/security isolation | PASS | Live `repo_read` macOS sandbox allows repo read while denying Home access, interpreter escape and `git push`; Apple release paths use bounded logical capability profiles |
+| 9 | Every action audit trail | PASS | Installed hash-chained event history verified clean; tamper regression detects modified history; significant tool/job/flow/steering actions emit events |
+| 10 | GPT + Claude model operation | BLOCKED EXTERNALLY | ChatGPT operates the runtime. Claude Code 2.1.292 is installed and points to the same MCP, but `claude auth status` reports `loggedIn:false`; Anthropic login is required before a real Claude model call can pass |
+| 11 | Real Xcode → GitHub → TestFlight | PASS | Paperie Build 34 source `12c087e` → three valid Xcode archives → IPA export → native `asc` upload → build `53a2aa08-aff9-4bd2-a663-a36fffa4cef3` `VALID` + `IN_BETA_TESTING` in Internal |
+| 12 | Public architecture + benchmark + 2–3 min demo | PASS | Public docs-only repo: `okok147/asympta-computer-public`; private runtime source remains private |
 
 ## Additional 9.5 gates
 

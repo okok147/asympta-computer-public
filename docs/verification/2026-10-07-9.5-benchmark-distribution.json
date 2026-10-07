@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "runtime_version": "0.7.0",
+  "quality_target": "9.5/10",
+  "runs": [
+    {
+      "dispatch_p50_ms": 6.338,
+      "event_p50_ms": 7.183,
+      "command_p50_ms": 38.104,
+      "steer_p50_ms": 4.997,
+      "sequential_ms": 953.12,
+      "parallel_ms": 451.654,
+      "speedup": 2.11
+    },
+    {
+      "dispatch_p50_ms": 6.823,
+      "event_p50_ms": 7.241,
+      "command_p50_ms": 38.094,
+      "steer_p50_ms": 5.055,
+      "sequential_ms": 983.138,
+      "parallel_ms": 452.866,
+      "speedup": 2.171
+    },
+    {
+      "dispatch_p50_ms": 6.001,
+      "event_p50_ms": 7.487,
+      "command_p50_ms": 39.496,
+      "steer_p50_ms": 4.895,
+      "sequential_ms": 1056.283,
+      "parallel_ms": 440.591,
+      "speedup": 2.397
+    }
+  ],
+  "aggregate": {
+    "dispatch_p50_ms": {
+      "median": 6.338,
+      "min": 6.001,
+      "max": 6.823
+    },
+    "event_p50_ms": {
+      "median": 7.241,
+      "min": 7.183,
+      "max": 7.487
+    },
+    "command_p50_ms": {
+      "median": 38.104,
+      "min": 38.094,
+      "max": 39.496
+    },
+    "steer_p50_ms": {
+      "median": 4.997,
+      "min": 4.895,
+      "max": 5.055
+    },
+    "sequential_ms": {
+      "median": 983.138,
+      "min": 953.12,
+      "max": 1056.283
+    },
+    "parallel_ms": {
+      "median": 451.654,
+      "min": 440.591,
+      "max": 452.866
+    },
+    "speedup": {
+      "median": 2.171,
+      "min": 2.11,
+      "max": 2.397
+    }
+  },
+  "note": "Three independent benchmark runs after PID-aware lease-lock and benchmark-teardown hardening. Report distribution/median rather than cherry-picking one run."
+}

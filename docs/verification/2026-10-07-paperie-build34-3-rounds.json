@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "runtime_version": "0.7.0",
+  "quality_target": "9.5/10",
+  "paperie": {
+    "repo": "okok147/asympta-paperie",
+    "source_commit": "12c087e",
+    "version": "1.0",
+    "build": "34",
+    "rounds": [
+      {
+        "round": 1,
+        "cache": "cold",
+        "jobs": 1,
+        "archive_ms": 48691,
+        "archive_valid": true
+      },
+      {
+        "round": 2,
+        "cache": "cold",
+        "jobs": 8,
+        "archive_ms": 28586,
+        "archive_valid": true
+      },
+      {
+        "round": 3,
+        "cache": "warm_reuse_round2",
+        "jobs": 8,
+        "archive_ms": 26103,
+        "archive_valid": true
+      }
+    ],
+    "improvement": {
+      "round2_vs_round1_percent": 41.29,
+      "round3_vs_round1_percent": 46.39,
+      "round3_vs_round2_percent": 8.69
+    },
+    "selected_round": 3,
+    "export_ms": 4586,
+    "ipa_bytes": 33227423,
+    "testflight_publish_ms": 130988,
+    "selected_pipeline_ms": 161677,
+    "app_store_connect_build_id": "53a2aa08-aff9-4bd2-a663-a36fffa4cef3",
+    "processing_state": "VALID",
+    "internal_build_state": "IN_BETA_TESTING",
+    "internal_group_access_all_builds": true
+  },
+  "conclusion": "Adaptive build/archive parallelism up to 8 workers plus persistent DerivedData is the measured fast path. Test remains single-worker/single-simulator for determinism."
+}
