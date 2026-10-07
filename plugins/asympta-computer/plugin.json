@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "asympta-computer",
-  "version": "0.9.1",
-  "description": "Durable Mac execution with predictive action simulation, recovery, Xcode, GitHub, TestFlight, background visual control, audit and long-running workflows.",
+  "version": "0.10.0",
+  "description": "Durable Mac execution with predictive recovery, portable GitHub memory, Xcode, GitHub, TestFlight, background visual control, audit and long-running workflows.",
   "author": {
     "name": "Asympta",
     "url": "https://github.com/okok147"
@@ -23,8 +23,8 @@
     "com.openai": {
       "interface": {
         "displayName": "Asympta Computer",
-        "shortDescription": "Durable Mac, Xcode, GitHub and TestFlight execution",
-        "longDescription": "Operate an authorized Mac through a durable predictive MCP runtime with long-running jobs, recovery, background visual control, Xcode, GitHub and App Store Connect/TestFlight workflows.",
+        "shortDescription": "Durable Mac automation with portable GitHub memory",
+        "longDescription": "Operate an authorized Mac through a durable predictive MCP runtime with GitHub-authoritative portable memory, long-running recovery, background visual control, Xcode, GitHub and App Store Connect/TestFlight workflows.",
         "developerName": "Asympta",
         "category": "Developer Tools",
         "capabilities": [
@@ -34,6 +34,7 @@
         ],
         "websiteURL": "https://github.com/okok147/asympta-computer-public",
         "defaultPrompt": [
+          "Restore my portable Asympta memory and continue from the latest durable state.",
           "Continue the current Asympta task using the fastest verified playbook.",
           "Build, verify, push, and distribute this Apple app to TestFlight.",
           "Recover interrupted work from the durable continuation capsule."

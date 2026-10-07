@@ -1,6 +1,6 @@
 # Asympta Computer — 9.5/10 Target Architecture
 
-Asympta Computer v0.9.0 targets a 9.5/10 quality level as a model-neutral MCP runtime for long-running macOS computer and developer workflows. It is designed around two rules: **reuse procedure, never reuse outcome**; and **simulate before action, replan on deviation**.
+Asympta Computer v0.10.0 targets a 9.5/10 quality level as a model-neutral MCP runtime for long-running macOS computer and developer workflows. It is designed around two rules: **reuse procedure, never reuse outcome**; and **simulate before action, replan on deviation**.
 
 ## Control planes
 
@@ -12,6 +12,7 @@ flowchart LR
   M --> P
   P --> R[Capability registry]
   P --> B[External blackboard + continuation capsule]
+  B --> GM[Private GitHub portable memory]
   R --> J[Durable Jobs]
   R --> F[Durable DAG Flows]
   R --> X[Capability-isolated Commands]
@@ -169,6 +170,35 @@ The external blackboard is append-only JSONL plus a compact continuation capsule
 
 A ChatGPT/browser UI stall cannot be guaranteed detectable or refreshable by the MCP server. Recovery therefore treats UI refresh/re-submit as a client responsibility and makes the server-side invariant stronger: **after reconnect, recover durable state first and never replay a consequential action solely because the chat stalled.**
 
+### 11. Portable GitHub memory
+
+v0.10 separates **long-term learned memory** from **machine-local executable state**.
+
+GitHub (`okok147/asympta-computer-memory`, private) is the authoritative long-term memory source. Each Mac keeps a disposable local clone/cache for latency and offline operation.
+
+Portable categories:
+
+- operator standing instructions/preferences;
+- learned playbooks;
+- task reflections;
+- predictive traps;
+- continuation summaries;
+- selected blackboard/output notes.
+
+Non-portable categories stay local:
+
+- credentials/tokens/private keys;
+- raw audit/event history;
+- job/process logs;
+- process sessions;
+- active worker PIDs/leases;
+- transient executable/release state.
+
+Records are append-only and named by logical subject + timestamp + sanitized content hash. This minimizes multi-machine merge conflicts. Import selects the newest logical record while preserving a newer local observation.
+
+Startup schedules a non-blocking GitHub pull/import. Memory-producing lifecycle events queue a debounced sync. Shutdown performs a bounded best-effort flush.
+
+Fresh-machine acceptance proved that an empty state directory can restore the seeded operator profile, playbooks, reflections, traps, continuation capsules and blackboard summaries entirely from GitHub.
 ## Reliability invariants
 
 1. Durable state is written before returning a task ID.
@@ -183,3 +213,5 @@ A ChatGPT/browser UI stall cannot be guaranteed detectable or refreshable by the
 10. Every non-control action must have a pre-action simulation map before execution.
 11. A deterministic exact failed signature is never blindly replayed; actual state must change or a different path must be simulated first.
 12. Chat/client context loss is recovered from continuation capsules, not by restarting completed side effects.
+13. GitHub is authoritative for long-term learned memory; local memory caches are disposable.
+14. Executable/transient state is never treated as portable memory and is not restored onto another machine.

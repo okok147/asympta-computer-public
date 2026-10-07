@@ -1,7 +1,7 @@
 {
   "name": "asympta-computer",
-  "version": "0.9.1",
-  "description": "Durable model-neutral Mac execution: Xcode, GitHub, App Store Connect/TestFlight, long-running DAG flows, steering, audit and reflection.",
+  "version": "0.10.0",
+  "description": "Durable Mac execution with predictive recovery, portable GitHub memory, Xcode, GitHub, TestFlight, background visual control, audit and long-running workflows.",
   "author": {
     "name": "Asympta",
     "url": "https://github.com/okok147"
@@ -22,8 +22,8 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Asympta Computer",
-    "shortDescription": "Durable Mac, Xcode, GitHub and TestFlight execution",
-    "longDescription": "Operate an authorized Mac through a durable model-neutral MCP runtime with long-running jobs, dependency-scheduled flows, capability isolation, audit history, iPad steering, Xcode, GitHub and App Store Connect/TestFlight workflows.",
+    "shortDescription": "Durable Mac automation with portable GitHub memory",
+    "longDescription": "Operate an authorized Mac through a durable predictive MCP runtime with GitHub-authoritative portable memory, long-running recovery, background visual control, Xcode, GitHub and App Store Connect/TestFlight workflows.",
     "developerName": "Asympta",
     "category": "Developer Tools",
     "capabilities": [
@@ -33,6 +33,7 @@
     ],
     "websiteURL": "https://github.com/okok147/asympta-computer-mcp",
     "defaultPrompt": [
+      "Restore my portable Asympta memory and continue from the latest durable state.",
       "Continue the current Asympta task using the fastest verified playbook.",
       "Build, verify, push, and distribute this Apple app to TestFlight.",
       "Inspect the active durable tasks and recover anything interrupted."

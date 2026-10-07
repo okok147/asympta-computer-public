@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "runtime_version": "0.10.0",
+  "date": "2026-10-07",
+  "feature": "GitHub-authoritative portable long-term memory",
+  "repository": {
+    "name": "okok147/asympta-computer-memory",
+    "private": true,
+    "branch": "main",
+    "remote_head": "f8f58ec274c7bedbe2c29d57572655394ebcb1a4",
+    "source_of_truth": "github"
+  },
+  "local_state": {
+    "role": "disposable cache/offline/runtime layer",
+    "cache": "~/.asympta-computer-mcp/portable-memory-cache/repo",
+    "manual_developer_clone_removed": true
+  },
+  "portable_categories": [
+    "operator standing instructions/preferences",
+    "playbooks",
+    "reflections",
+    "predictive traps",
+    "continuation summaries",
+    "selected blackboard/final-output summaries"
+  ],
+  "excluded_categories": [
+    "credentials",
+    "tokens",
+    "private keys",
+    "raw audit logs",
+    "job logs",
+    "process output",
+    "transient executable state"
+  ],
+  "seed": {
+    "standing_instructions": 8,
+    "playbooks": 9,
+    "reflections": 11,
+    "traps": 4,
+    "continuation_capsules": 3,
+    "blackboard_summaries": 2,
+    "initial_commit": "9fbac954f7ef362ddba77301427d329ef09a49b9"
+  },
+  "dlp_scan": {
+    "scanned_files": 33,
+    "scanned_bytes": 686228,
+    "github_token_leaks": 0,
+    "openai_key_leaks": 0,
+    "private_key_leaks": 0,
+    "absolute_home_path_leaks": 0
+  },
+  "clean_machine_restore": {
+    "state_root": "/private/tmp/asympta-portable-restore-state",
+    "pulled": true,
+    "imported": {
+      "profile": 1,
+      "playbook": 9,
+      "reflection": 11,
+      "trap": 4,
+      "continuation": 3,
+      "blackboard": 2
+    },
+    "standing_instructions": 8,
+    "success": true
+  },
+  "multi_machine_merge": {
+    "simulated_machines": 3,
+    "independent_records_preserved": true,
+    "overwrite_conflict": false
+  },
+  "readable_output_memory": {
+    "marker": "portable-output-memory-1791344924805",
+    "auto_sync": true,
+    "remote_commit": "055c3b9ce12eca613a17711fe6cb828ff2dbdc58",
+    "readable_summary_verified": true,
+    "summary": "portable-output-memory-1791344924805 — readable final-output memory stored in GitHub."
+  },
+  "lifecycle": {
+    "startup_bootstrap": "non-blocking GitHub pull/import",
+    "lifecycle_auto_sync": "5s debounced",
+    "shutdown_flush": "bounded best-effort",
+    "append_only_records": true,
+    "path_normalization": true
+  },
+  "mcp_surface": {
+    "installed_version": "0.10.0",
+    "tool_count": 123,
+    "tools": [
+      "memory_status",
+      "memory_sync",
+      "memory_profile_get",
+      "memory_profile_update"
+    ],
+    "resources": [
+      "asympta://memory/status",
+      "asympta://memory/profile"
+    ],
+    "profile_standing_instructions": 8
+  },
+  "tests": {
+    "portable_memory_focused": "3/3",
+    "predictive_plus_memory_focused": "10/10",
+    "full_suite": "86/86",
+    "npm_audit_vulnerabilities": 0,
+    "git_diff_check": true
+  }
+}
