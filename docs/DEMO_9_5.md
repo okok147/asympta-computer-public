@@ -1,8 +1,8 @@
-# Asympta Computer v0.8.0 — 9.5/10 Target — 2–3 minute demo script
+# Asympta Computer v0.9.0 — 9.5/10 Target — 2–3 minute demo script
 
 ## 0:00–0:18 — One runtime, replaceable client
 
-Show ChatGPT connected to Asympta Computer and run the stable dispatch manifest/discovery. Show v0.8.0, the schema hash, and live tool discovery.
+Show ChatGPT connected to Asympta Computer and run the stable dispatch manifest/discovery. Show v0.9.0, the schema hash, and live tool discovery.
 
 Narration: “The model/client is replaceable. Durable computer state is not.”
 
@@ -52,22 +52,25 @@ Archive timings:
 
 Show Build 35 `VALID` + `IN_BETA_TESTING`.
 
-## 2:13–2:33 — Reflection and invariant reuse
+## 2:13–2:38 — Predictive execution, trap recovery, and reflection
 
-Open the task reflection/playbook. Highlight:
+Show one successful action's pre-action simulation map, then its prediction match and fast continuation. Next, deliberately run a deterministic failing action and show:
 
-- stable invariant: 8 workers + warm DerivedData on this 8-way Mac
-- variants: source/build number, signing/provider state, artifact path
-- final validation is always repeated
-- no previous successful outcome is reused as current evidence
+- deviation classification;
+- generated future re-simulation sequence;
+- exact-repeat `PREDICTIVE_TRAP_BLOCK`;
+- `continuation_get` carrying the trap and safe next action outside chat context;
+- a changed action succeeding and clearing the active trap.
 
-## 2:33–2:50 — iPad steer + model neutrality
+Then open the task reflection/playbook. Highlight the stable invariant (8 workers + warm DerivedData), current variants, and the rule that final validation is always repeated.
+
+## 2:38–2:52 — iPad steer + model neutrality
 
 Show the paired LAN steering protocol and SSE/signal path. If the physical iPad is unavailable, show the protocol evidence and say the hardware gate is still open.
 
 Show Claude MCP configuration. Do not claim Claude model execution unless `claude auth status` is logged in.
 
-## 2:50–3:00 — Public evidence
+## 2:52–3:00 — Public evidence
 
 Open `okok147/asympta-computer-public`: architecture, acceptance matrix, benchmark JSON, and this demo script.
 

@@ -1,6 +1,6 @@
 # Asympta Computer — 9.5/10 Target Architecture
 
-Asympta Computer v0.8.0 targets a 9.5/10 quality level as a model-neutral MCP runtime for long-running macOS computer and developer workflows. It is designed around one rule: **reuse procedure, never reuse outcome**.
+Asympta Computer v0.9.0 targets a 9.5/10 quality level as a model-neutral MCP runtime for long-running macOS computer and developer workflows. It is designed around two rules: **reuse procedure, never reuse outcome**; and **simulate before action, replan on deviation**.
 
 ## Control planes
 
@@ -8,8 +8,10 @@ Asympta Computer v0.8.0 targets a 9.5/10 quality level as a model-neutral MCP ru
 flowchart LR
   C[ChatGPT / Claude / MCP client] --> D[Stable asympta_dispatch]
   C --> M[MCP typed tools]
-  D --> R[Capability registry]
-  M --> R
+  D --> P[Predictive simulation + trap gate]
+  M --> P
+  P --> R[Capability registry]
+  P --> B[External blackboard + continuation capsule]
   R --> J[Durable Jobs]
   R --> F[Durable DAG Flows]
   R --> X[Capability-isolated Commands]
@@ -21,6 +23,7 @@ flowchart LR
   X --> E
   M --> E
   E --> V[Comparator / audit verification]
+  E --> B
 ```
 
 ### 1. Stable dispatch
@@ -141,6 +144,31 @@ A post-task reflection records:
 
 Independent comparator-style gates validate outcomes instead of treating model confidence as proof.
 
+### 10. Predictive execution and external blackboard
+
+Before every non-control tool action, the runtime persists a simulated action/result map. The simulation records the intended action, expected status/effect, task-specific variable keys, and three branches: prediction match, deviation, and uncertain disconnect/timeout outcome.
+
+Execution then follows a comparator loop:
+
+1. **simulate** — write the expected action/result map before action;
+2. **act** — execute through the normal typed tool/capability/durable-job path;
+3. **compare** — classify actual result against the prediction;
+4. **match** — continue without replanning;
+5. **deviation** — persist a trap and a future re-simulation sequence from actual state;
+6. **repeat only after change** — deterministic exact-repeat failures are blocked; transient timeout/network paths get at most one bounded exact retry.
+
+The prediction-match path intentionally avoids an extra hash-chain fsync because the normal `tool.action` audit event is already crash-durable. Measured predictive bookkeeping fell from about **13.916 ms p50** to **5.932 ms p50** after this optimization; post-match bookkeeping is about **0.440 ms p50**.
+
+The external blackboard is append-only JSONL plus a compact continuation capsule. It exists outside the chat context and preserves:
+
+- completed/current/ready work steps;
+- active traps and forbidden exact-repeat signatures;
+- last prediction outcome/deviation;
+- safe resume protocol;
+- compact answer/output notes when explicitly checkpointed.
+
+A ChatGPT/browser UI stall cannot be guaranteed detectable or refreshable by the MCP server. Recovery therefore treats UI refresh/re-submit as a client responsibility and makes the server-side invariant stronger: **after reconnect, recover durable state first and never replay a consequential action solely because the chat stalled.**
+
 ## Reliability invariants
 
 1. Durable state is written before returning a task ID.
@@ -152,3 +180,6 @@ Independent comparator-style gates validate outcomes instead of treating model c
 7. Audit/event evidence is append-only and independently verifiable.
 8. Request timeout is never treated as permission to restart a consequential operation; reconcile durable state first.
 9. Background UI control must not silently degrade into focus theft or global mouse injection.
+10. Every non-control action must have a pre-action simulation map before execution.
+11. A deterministic exact failed signature is never blindly replayed; actual state must change or a different path must be simulated first.
+12. Chat/client context loss is recovered from continuation capsules, not by restarting completed side effects.

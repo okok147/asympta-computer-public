@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "runtime_version": "0.9.0",
+  "date": "2026-10-07",
+  "feature": "predictive execution + durable external blackboard",
+  "release_gate": {
+    "npm_ci": true,
+    "syntax_check": true,
+    "tests": {
+      "passed": 82,
+      "failed": 0
+    },
+    "npm_audit_vulnerabilities": 0,
+    "git_diff_check": true,
+    "installed_service_version": "0.9.0"
+  },
+  "predictive_overhead": {
+    "before_optimization": {
+      "match_roundtrip_p50_ms": 13.916,
+      "match_roundtrip_p95_ms": 19.312
+    },
+    "after_optimization": {
+      "pre_action_p50_ms": 5.492,
+      "pre_action_p95_ms": 8.545,
+      "post_match_p50_ms": 0.44,
+      "post_match_p95_ms": 0.936,
+      "match_roundtrip_p50_ms": 5.932,
+      "match_roundtrip_p95_ms": 9.481
+    },
+    "principle": "prediction matches use the existing crash-durable tool.action audit event and avoid a second fsync; deviations pay extra durability cost for trap/replan state"
+  },
+  "execution_semantics": {
+    "pre_action_simulation": true,
+    "match_fast_path": true,
+    "deviation_replan": true,
+    "deterministic_exact_repeat_block": true,
+    "transient_exact_retry_limit": 1,
+    "historical_trap_warning_cross_task": true,
+    "stable_dispatch_same_boundary": true,
+    "durable_job_worker_same_boundary": true,
+    "flow_worker_same_boundary": true
+  },
+  "blackboard": {
+    "append_only_jsonl": true,
+    "continuation_capsule": true,
+    "global_output_notes": true,
+    "resources": [
+      "asympta://predictive",
+      "asympta://continuation/active",
+      "asympta://continuation/<work-id>"
+    ],
+    "tools": [
+      "simulation_status",
+      "trap_list",
+      "continuation_get",
+      "blackboard_note",
+      "predictive_stats"
+    ]
+  },
+  "live_smoke": {
+    "work_id": "ff1a4b7b-dea9-49ab-9169-8bc37bc7f182",
+    "first_failure": {
+      "tool": "run_command",
+      "exit_code": 17,
+      "failure_class": "process_exit"
+    },
+    "exact_repeat": "PREDICTIVE_TRAP_BLOCK",
+    "before_recovery": {
+      "status": "active",
+      "replan_required": true,
+      "active_traps": 1,
+      "retry_policy": "change_required"
+    },
+    "changed_action": {
+      "exit_code": 0,
+      "stdout": "RECOVERED_LIVE"
+    },
+    "after_recovery": {
+      "status": "completed",
+      "replan_required": false,
+      "active_traps": 0,
+      "completed_steps": [
+        "execute"
+      ]
+    },
+    "predictive_resource_verified": true,
+    "continuation_resource_verified": true,
+    "blackboard_output_note_verified": true
+  },
+  "platform_boundary": {
+    "chatgpt_ui_refresh_detection_guaranteed": false,
+    "server_can_force_chatgpt_refresh_or_resubmit": false,
+    "recovery_rule": "UI refresh/re-submit is client responsibility. On reconnect, recover durable work/job/flow IDs and continuation capsule before any consequential action. Never replay side effects solely because the chat stalled."
+  }
+}
