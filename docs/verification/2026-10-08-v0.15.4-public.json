@@ -1,0 +1,74 @@
+{
+  "version": "0.15.4",
+  "date": "2026-10-08",
+  "release_state": "verified deployed private MCP runtime; public plugin metadata candidate",
+  "sources": [
+    {
+      "title": "A Data Base Sublanguage Founded on the Relational Calculus",
+      "author": "Edgar F. Codd",
+      "year": 1971,
+      "url": "https://research.ibm.com/publications/a-data-base-sublanguage-founded-on-the-relational-calculus",
+      "access": "IBM abstract; full paper not read"
+    },
+    {
+      "title": "Scaling Laws for Neural Language Models",
+      "author": "Jared Kaplan et al.",
+      "year": 2020,
+      "url": "https://arxiv.org/pdf/2001.08361#page=10",
+      "access": "section 4"
+    }
+  ],
+  "changes": [
+    "read-only work_query via stable asympta_dispatch",
+    "safe typed predicates and field projection",
+    "canonical ID or bounded-scan plan",
+    "strict serialized JSON response-data byte budget with whole-row truncation"
+  ],
+  "compatibility": {
+    "exposed_tools": 2,
+    "internal_capabilities": 127,
+    "existing_apis": [
+      "work_get",
+      "work_list"
+    ],
+    "credentials_permissions_unchanged": true
+  },
+  "validation": {
+    "private_ci_run": "https://github.com/okok147/asympta-computer-mcp/actions/runs/37720150858",
+    "github_macos": "pass",
+    "github_ubuntu": "pass",
+    "local_tests": {
+      "passed": 157,
+      "failed": 0
+    },
+    "focused_tests": {
+      "passed": 8,
+      "failed": 0
+    },
+    "dependency_audit_critical_high": 0,
+    "live_mcp_version": "0.15.4",
+    "live_mcp_query": "pass",
+    "legacy_work_list": "pass"
+  },
+  "measurements": [
+    {
+      "workload": "5 active work rows",
+      "legacy_json_bytes": 49544,
+      "projected_json_bytes": 1745,
+      "percentage_decrease": 96.48
+    },
+    {
+      "workload": "500 synthetic work rows, first 200 selected",
+      "legacy_json_bytes": 533001,
+      "projected_json_bytes": 20123,
+      "percentage_decrease": 96.22
+    }
+  ],
+  "limitations": [
+    "Response-size reductions do not prove reduction in model tokens or end-to-end MCP/network bytes.",
+    "No latency speedup is claimed: samples were inconsistent under shared-host load.",
+    "No direct neural-LM scaling exponent was applied to MCP.",
+    "Client-side connector Refresh remains platform controlled.",
+    "One early durable-job test failed under high machine load but passed in focused retry and subsequent complete suites."
+  ]
+}
