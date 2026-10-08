@@ -2,7 +2,15 @@
 
 Public architecture, acceptance evidence, benchmark material, and GitHub-synced plugin package for Asympta Computer.
 
-Current deployed runtime: **v0.15.3** (2026-10-08). Live MCP reports 126 internal capabilities, 2 exposed tools, and the unchanged stable dispatch schema hash. The public plugin metadata tracks this runtime; ChatGPT's client-side display cache may still require Refresh.
+Current deployed runtime: **v0.15.4** (2026-10-08). Live MCP reports 127 internal capabilities and 2 exposed tools; a new hidden read-only `work_query` tool is available through stable dispatch. The public package tracks this runtime; ChatGPT's client-side display cache may still require manual Refresh.
+
+## v0.15.4 Intent-first work queries (verified)
+
+- **Declarative request:** `work_query` selects work by safe filters (ID/status/title/recency/readiness) and exposes only requested allowlisted fields. A direct ID uses a single canonical record; a broader request uses bounded canonical JSON scanning. There is no extra mutable index, SQL expression, or shadow work state.
+- **Measured output economy:** Existing five-work report: 49,544 → 1,745 JSON bytes (-96.5%). Synthetic 500-work sample, returning 200: 533,001 → 20,123 JSON bytes (-96.2%). Those are query-payload bytes, not total MCP transport bytes or proven token savings. Latency was inconsistent under other Mac workloads; no speedup is claimed.
+- **Evidence:** v0.15.4 candidate passed 157/157 local tests; GitHub macOS and Ubuntu workflows [passed](https://github.com/okok147/asympta-computer-mcp/actions/runs/37720150858). Installed service restarted and live ChatGPT MCP dispatch verified new `work_query`, `work_list`, version 0.15.4, 127 internal/2 exposed tools. The original Codd 1971 and Kaplan et al. §4 were methodological inspirations, not drop-in formula improvements.
+- **Usage:** `asympta_dispatch(op="discover", query="work_query")`, then `asympta_dispatch(op="call", action="work_query", arguments={where:{status:"active"},fields:["id","title","status"],max_bytes:4096})`.
+- [Sanitized verification](docs/verification/2026-10-08-v0.15.4-public.json). Client-side ChatGPT connector Refresh may still be required to refresh labels/icons.
 
 ## v0.15.3 Read-independent work queries and bounded scanning (verified)
 
