@@ -1,8 +1,14 @@
+# v0.16.0 — one Asympta Computer plugin with native physical-iPad laser bridge
+
+The same plugin now exposes bounded real-iPad observe → action → screenshot/XCTest/steering feedback via its existing MCP. Incremental Xcode build caching, grouped UI test filters, physical-device lease and failure-classified xcresult improve the **design** for speed and accuracy. Actual latency and success-rate improvements require hardware measurements. No second app, Simulator fallback, macOS/iPad approval bypass or simulated real Apple Pencil pressure is provided.
+
+The ChatGPT/Codex/Claude portable package points to the existing private runtime at v0.16.0. GitHub metadata and installed service are verified separately. No Paperie app feature tests were run as part of this plugin-only upgrade.
+
 # Asympta Computer — 9.5/10 Quality Target
 
 Public architecture, acceptance evidence, benchmark material, and GitHub-synced plugin package for Asympta Computer.
 
-Current deployed runtime: **v0.15.4** (2026-10-08). Live MCP reports 127 internal capabilities and 2 exposed tools; a new hidden read-only `work_query` tool is available through stable dispatch. The public package tracks this runtime; ChatGPT's client-side display cache may still require manual Refresh.
+Historical deployed runtime for that evidence snapshot: **v0.15.4** (2026-10-08). Live MCP reports 127 internal capabilities and 2 exposed tools; a new hidden read-only `work_query` tool is available through stable dispatch. The public package tracks this runtime; ChatGPT's client-side display cache may still require manual Refresh.
 
 ## v0.15.4 Intent-first work queries (verified)
 
