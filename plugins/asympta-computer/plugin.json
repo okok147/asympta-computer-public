@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "asympta-computer",
-  "version": "0.15.4",
+  "version": "0.16.0",
   "description": "Durable Mac execution with predictive recovery, portable GitHub memory, Xcode, GitHub, TestFlight, background visual control, audit and long-running workflows.",
   "author": {
     "name": "Asympta",
@@ -37,6 +37,7 @@
           "Restore my portable Asympta memory and continue from the latest durable state.",
           "Continue the current Asympta task using the fastest verified playbook.",
           "Build, verify, push, and distribute this Apple app to TestFlight.",
+          "Use Asympta Computer's native physical-iPad laser feedback loop to observe, run targeted gestures via XCTest, and diagnose real-device failures without Simulator.",
           "Recover interrupted work from the durable continuation capsule."
         ],
         "brandColor": "#445198",
