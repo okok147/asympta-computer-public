@@ -1,3 +1,14 @@
+# Asympta Computer v0.16.3 — Speed, accuracy and usage saving
+
+The **same** Asympta Computer ChatGPT/Codex/Claude plugin now supports faster bounded CLI output buffering, truthful UTF-8/total output bytes and explicit truncation, and opt-in lightweight capability discovery.
+
+- \`asympta_dispatch(op="discover", detail="compact")\` saves **74.04%** of structured discovery JSON bytes versus legacy \`detail="full"\` for 100 tool results. \`detail="names"\` saves **96.43%**.
+- \`run_command(max_output_bytes=4096)\` returns the tail and actual emitted byte count, saving **96.32%** of result JSON bytes on the representative 120KB CLI case. Omitting this optional limit preserves legacy output capacity.
+- A fixed-capacity lazy ring reduces large command-output allocations and keeps exit/Unicode/streaming evidence. Isolated 16.8MB process output benchmark: seven-run P50 **199.34 → 63.55ms**, cumulative CPU **1,216 → 154ms**, final process RSS **381 → 80MB**; these are local synthetic workload results, not ChatGPT end-to-end performance.
+- Original default discovery and CLI result semantics remain unchanged. No additional app, security permission bypass or physical iPad gesture changes.
+
+Source verification, raw data and error boundaries are in the private execution repository: \`docs/verification/2026-10-10-v0163-speed-accuracy-usage.md\`. Historical public release notes are preserved below.
+
 # v0.16.2 — Apple-native wireless iPad connectivity
 
 The **same Asympta Computer plugin** now supports read-only `ipad_wireless_status` and optional `wireless_only:true` on `ipad_status`, `ipad_test` and `ipad_laser`. This uses Xcode 27 Device Hub/CoreDevice to work with a physically paired iPad over a confirmed Wi-Fi/network transport, with no second app or custom proxy. A plugged-in USB transport or an unknown connection is never reported as cable-free success.
