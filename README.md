@@ -1,3 +1,11 @@
+# v0.16.2 — Apple-native wireless iPad connectivity
+
+The **same Asympta Computer plugin** now supports read-only `ipad_wireless_status` and optional `wireless_only:true` on `ipad_status`, `ipad_test` and `ipad_laser`. This uses Xcode 27 Device Hub/CoreDevice to work with a physically paired iPad over a confirmed Wi-Fi/network transport, with no second app or custom proxy. A plugged-in USB transport or an unknown connection is never reported as cable-free success.
+
+Xcode 27 can pair iPadOS 27+ over Wi-Fi from **Device Hub → Add Device (+) → Pair Nearby Device…**; PIN, Trust and Developer Mode prompts still require the owner's action. The runtime refuses to switch Mac network settings or fake connection status. Current real iPad Air M4 is known/paired but was unavailable while Mac Wi-Fi was not associated; a successful **unplugged** XCUITest remains unverified.
+
+Official reference: https://developer.apple.com/documentation/xcode/pairing-your-devices-with-your-mac . Existing v0.16.1 optimization and all previous release notes follow.
+
 # v0.16.1 — Three measured Asympta Computer improvements
 
 Same plugin identity; no second app. The private MCP runtime is upgraded with (1) offline feedback fast path, (2) bounded backward-streaming of persisted iPad steering history with serialized writes, and (3) version-fenced memoization and a proven monotonic recent-byte index. A 70,000-record, 18.8 MB synthetic feedback fixture yielded a 0.048ms in-process **hot-cache** Laser median versus 173.703ms at the v0.16.0 baseline; the **live append-followed-by-read** median was 0.123ms (read only). The initial uncached read remains ~65ms; no real iPad gesture or ChatGPT network latency benefit has been measured. Correctness gates include 90 deterministic differential queries and the full plugin regression suite.
