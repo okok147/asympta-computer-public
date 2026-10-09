@@ -1,3 +1,9 @@
+# v0.16.1 — Three measured Asympta Computer improvements
+
+Same plugin identity; no second app. The private MCP runtime is upgraded with (1) offline feedback fast path, (2) bounded backward-streaming of persisted iPad steering history with serialized writes, and (3) version-fenced memoization and a proven monotonic recent-byte index. A 70,000-record, 18.8 MB synthetic feedback fixture yielded a 0.048ms in-process **hot-cache** Laser median versus 173.703ms at the v0.16.0 baseline; the **live append-followed-by-read** median was 0.123ms (read only). The initial uncached read remains ~65ms; no real iPad gesture or ChatGPT network latency benefit has been measured. Correctness gates include 90 deterministic differential queries and the full plugin regression suite.
+
+No Apple permissions are bypassed, historical data is not deleted, and genuine Apple Pencil pressure/latency remain hardware-only. Full research/methodology in the private repository verification document.
+
 # v0.16.0 — one Asympta Computer plugin with native physical-iPad laser bridge
 
 The same plugin now exposes bounded real-iPad observe → action → screenshot/XCTest/steering feedback via its existing MCP. Incremental Xcode build caching, grouped UI test filters, physical-device lease and failure-classified xcresult improve the **design** for speed and accuracy. Actual latency and success-rate improvements require hardware measurements. No second app, Simulator fallback, macOS/iPad approval bypass or simulated real Apple Pencil pressure is provided.
