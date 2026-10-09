@@ -1,3 +1,11 @@
+# v0.16.4 — One-process macOS Computer Use laser (XCTest-inspired)
+
+The same **Asympta Computer** ChatGPT/Codex/Claude plugin now advertises `computer_laser`, a bounded single native Swift Accessibility control loop for semantic observation, AXPress, AXValue and explicit assertion steps (up to 10 per call). Compared to separately launching a helper for every UI step, this architecture is designed to cut native process launches and MCP tool roundtrips. It returns compact outcomes instead of entire AX trees.
+
+Accuracy first: exact semantic identifier/text+role, unique-match requirement, bounded complete scans, conditional waiting *only* on read-only assertions, no blind click/write replay, macOS Accessibility permission retained, and no global mouse injection. An AX action acknowledgment is **not** a verified UI outcome; use a following assertion.
+
+**Hardware Mac speedup is not yet verified.** Initial Apple API research and source-level comparison are in the [private design record](https://github.com/okok147/asympta-computer-mcp/blob/feat/computer-native-laser-v0164/docs/verification/2026-10-10-v0164-computer-laser.md). GitHub macOS Swift compilation and a real Finder/disposable-app A/B are mandatory before reporting performance improvement. No separate app or plugin, no user data modification.
+
 # Asympta Computer v0.16.3 — Speed, accuracy and usage saving
 
 The **same** Asympta Computer ChatGPT/Codex/Claude plugin now supports faster bounded CLI output buffering, truthful UTF-8/total output bytes and explicit truncation, and opt-in lightweight capability discovery.
