@@ -1,3 +1,14 @@
+# v0.16.6 — Aesthetic Intent & Taste for creative work
+
+The same **Asympta Computer** ChatGPT/Codex/Claude plugin adds two optional read-only tools for vague art direction in UI/UX, animation and 3D:
+
+- **aesthetic_brief** preserves original words, explicit exclusions, protected designs and technical constraints. It proposes three reversible creative directions and visual, motion and functional validation criteria. If an observed sequence is actually supplied, it can describe empirical first-order transitions, **not** a listener's expectation or a beauty score.
+- **aesthetic_review** summarizes declared screenshots/renders, claimed technical evidence, and pseudonymous human pairwise preferences. It does **not** inspect images or certify test results. A provisional preference is not publication approval; real artifact inspection and owner judgment remain required.
+
+For relevant creative tasks the plugin skill asks ChatGPT to observe actual work, inspect equivalent variants and verify technical + aesthetic outcomes before release. The pure helper itself uses no extra model/network calls, leaving speed and cost of actual creative workflow to be measured. Research-inspired lenses of classical/expressive aesthetics and unity-in-variety are **not** universal taste formulas.
+
+The existing Xcode/TestFlight, Blender, macOS Accessibility and native Computer Use paths remain unchanged. The private implementation carries focused tests, seeded local microbenchmarks and GitHub CI; measured visual-preference improvements or global artistic rankings are **not claimed**.
+
 # v0.16.5 — Reliable background job completion
 
 The existing Asympta Computer plugin now prevents compact-MCP durable jobs from reporting success while a nested command is still running. The job worker uses the internal tool catalog (without expanding ChatGPT's public tool list), waits for the child process exit, and records terminal exit code/output. A real child-process regression test is included in the private runtime. macOS local full regression passed 292/292; public metadata, CI and installed-runtime verification are separate delivery gates.
