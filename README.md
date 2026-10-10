@@ -1,3 +1,9 @@
+# v0.16.5 — Reliable background job completion
+
+The existing Asympta Computer plugin now prevents compact-MCP durable jobs from reporting success while a nested command is still running. The job worker uses the internal tool catalog (without expanding ChatGPT's public tool list), waits for the child process exit, and records terminal exit code/output. A real child-process regression test is included in the private runtime. macOS local full regression passed 292/292; public metadata, CI and installed-runtime verification are separate delivery gates.
+
+The v0.16.4 native `computer_laser` remains available and still enforces bounded AX scans and focus/mouse checks. Initial read-only Mac Finder A/B encountered incomplete-scan/attention-preservation failures under concurrent activity, so a reliable end-to-end performance multiplier is not yet established; retain the existing fallback for uncertain UI states.
+
 # v0.16.4 — One-process macOS Computer Use laser (XCTest-inspired)
 
 The same **Asympta Computer** ChatGPT/Codex/Claude plugin now advertises `computer_laser`, a bounded single native Swift Accessibility control loop for semantic observation, AXPress, AXValue and explicit assertion steps (up to 10 per call). Compared to separately launching a helper for every UI step, this architecture is designed to cut native process launches and MCP tool roundtrips. It returns compact outcomes instead of entire AX trees.
