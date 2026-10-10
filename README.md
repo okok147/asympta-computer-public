@@ -1,3 +1,9 @@
+# v0.16.7 — Correct handling of shared negative aesthetic intent
+
+A real v0.16.6 Asympta Computer MCP request interpreted the instruction "不要太可愛或塑膠感" incorrectly: it avoided cute styling but treated plastic gloss as **desired**. The updated aesthetic_brief now keeps a negation across coordinated expressions (or/and/或/和), while explicit contrasts and preserve/do-not-lose language stop unintended spillover. Ambiguous long-range scope is flagged instead of silently treating a negative property as positive.
+
+This is a semantic reliability correction inside the **same plugin**, not a new AI model or a universal taste score. v0.16.6 creative planning, human pairwise evidence and the native Computer Use / Xcode / Blender paths remain unchanged. Complete private CI and real Mac MCP entrypoint regression are required before claiming this specific user-observed bug is fixed.
+
 # v0.16.6 — Aesthetic Intent & Taste for creative work
 
 The same **Asympta Computer** ChatGPT/Codex/Claude plugin adds two optional read-only tools for vague art direction in UI/UX, animation and 3D:
