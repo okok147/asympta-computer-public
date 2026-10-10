@@ -1,3 +1,13 @@
+# v0.16.9 — Fast verified read-only MCP batching
+
+**Asympta Computer stays the same installed plugin** with only the two existing ChatGPT-facing control tools. A new approved **read_only_batch** action is available through the compatible existing asympta_dispatch op=call action=read_only_batch route, without requiring the client to recognize a new op name or install a new app.
+
+For independent local read-only work, 1–6 actions can run in one external MCP roundtrip with at most four concurrent subcalls. Every action is prevalidated and runs through its original schema, permission, predictive and audit gates. Shell, git mutations, macOS clicks/typing/values, remote fetches and release/publishing are explicitly prohibited from batch calls. Partial/truncated/running, failed, oversized or unstructured reads never count as complete successes.
+
+On the installed v0.16.8 host, three independent single-tool calls took 8.53 seconds in one baseline run; the post-deployment batch wall time must be verified independently. Source-local three-seed trials replacing 31–36 single calls with eight batches preserved **exact equivalent structured results** and, with opt-in text_mirror=summary for structuredContent clients, reduced modeled MCP result bytes by **approximately 52–54%**. This is not a 52–54% model token billing reduction or a universal one-tool acceleration. Legacy-compatible full JSON text remains the default, following the Model Context Protocol guidance.
+
+Public/private version manifests and operational skill remain byte-aligned. Detailed paired evidence, risk controls and limits: [private v0.16.9 verification record](https://github.com/okok147/asympta-computer-mcp/blob/main/docs/verification/2026-10-10-v0169-mcp-readonly-batch.md). No iPad, Xcode, Blender, creative asset or macOS interaction permissions are modified.
+
 # v0.16.8 — Faster, more accurate and lower-byte aesthetic + Mac observation workflows
 
 The **same Asympta Computer** plugin improves post-v0.16.7 creative intent and native macOS Accessibility, without changing authorization or introducing another app/model.
