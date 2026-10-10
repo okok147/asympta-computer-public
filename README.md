@@ -1,3 +1,15 @@
+# v0.16.8 — Faster, more accurate and lower-byte aesthetic + Mac observation workflows
+
+The **same Asympta Computer** plugin improves post-v0.16.7 creative intent and native macOS Accessibility, without changing authorization or introducing another app/model.
+
+**Accuracy:** Recognize complete English domain cues rather than accidentally detecting "app/UI" inside "happy"/"appearance"; treat explicitly avoided materials as protected constraints, surface requested-versus-forbidden conflicts, normalize pseudonymous reviewer ID aliases, and reject invalid or ambiguous artifact/candidate IDs. Native background AX tree inspection now reports missing deeper children as a depth-budget failure; the laser uses a bounded one-child sentinel rather than assuming a full capacity proves truncation.
+
+**Speed and Usage Saving:** Opt-in detail=compact on aesthetic_brief / aesthetic_review maintains all hard creative and engineering gates while using ~34.2% less JSON payload in a controlled workload. Lower-allocation single-domain planning recorded 6–9% shorter in-process P50 in three alternating 5,000-case comparisons, *not* an end-to-end ChatGPT latency claim. Full/default tool responses are unchanged.
+
+**Concurrent computer use:** An explicit opt-in allow_external_cursor_drift_for_observe=true is available **only for observe-only** computer_laser steps. It still reports the user's external cursor movement and requires unchanged app focus, complete scans, and no mouse injection. Default remains strict; clicks, typing, values and assertions cannot use this relaxation. In seven read-only Finder fixed-depth runs, four individual scans had 263ms P50 versus a single four-observe laser batch at 118ms P50; this is the existing native batch design, not a newly invented v0.16.8 universal speedup.
+
+Reproducible benchmark, adversarial tests and limitations are recorded in the [private v0.16.8 verification file](https://github.com/okok147/asympta-computer-mcp/blob/main/docs/verification/2026-10-10-v0168-aesthetic-optimization.md). No claim is made that a real UI, animation or 3D artifact has become aesthetically better without visual comparison and human preference evidence.
+
 # v0.16.7 — Correct handling of shared negative aesthetic intent
 
 A real v0.16.6 Asympta Computer MCP request interpreted the instruction "不要太可愛或塑膠感" incorrectly: it avoided cute styling but treated plastic gloss as **desired**. The updated aesthetic_brief now keeps a negation across coordinated expressions (or/and/或/和), while explicit contrasts and preserve/do-not-lose language stop unintended spillover. Ambiguous long-range scope is flagged instead of silently treating a negative property as positive.
