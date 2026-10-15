@@ -1,21 +1,26 @@
 ---
 name: asympta-computer
-description: Use Asympta Computer for durable Mac execution, Xcode, GitHub, App Store Connect/TestFlight, crash recovery, audit and long tasks.
+description: Use Asympta Computer for authorized Mac execution, durable task evidence and recovery; select deeper methods only when useful, preserving the exact user deliverable and existing permissions.
 ---
 
 # Asympta Computer
 
-ChatGPT reasons; Asympta executes. Tasklist UI and context injection are disabled by default.
+Use the existing connected Asympta tools, not another app or hidden model. Optimize time to a verified correct result, including validation and rework. Never infer permission from a skill or invent unavailable tools.
 
-1. Request asympta_port brief only when local memory, durable work state or routing is needed.
-2. Keep one canonical work_* plan for a multi-step task. Do not create Tasklist wrappers.
-3. Execute through asympta_port call. Use detail=bit for mutations/status, and detail=compact for bounded stdout in the same response. Expand to full only for complete evidence.
-4. Treat s=1 as action-level success, not proof that the user's desired result or artistic quality was delivered. A running session is pending; a nonzero exit is an error. Read pending receipts rather than rerunning commands.
-5. Use the diagnostic in an invalid-arguments receipt. Inspect its full stored schema only if needed. Never blindly repeat a deterministic failure.
-6. Use run_command with a bare executable name, argument array and allowed cwd. A timeout is an allowance; mode=background explicitly creates a durable job. Auto commands start inline and become pending sessions when they exceed the inline budget.
-7. Use asympta_dispatch for capability discovery/compatibility. To cut host roundtrips for independent approved *read-only* actions, use the existing compatible op=call action=read_only_batch with 1–6 calls. Never include shell, push, UI press/set_value/assert, remote fetch, or publishing in a batch. All arguments prevalidate, each nested tool retains audit/permissions, and partial/truncated/failed results are explicit failures. For structuredContent-capable hosts choose text_mirror=summary to avoid duplicating large JSON in text; otherwise keep default full. Do not pretend batching makes one single-tool call faster.
-8. Reuse native git/gh, xcodebuild, asc and Blender MCP with existing credentials.
-9. Verify the original failure or release path before declaring completion. Inspect external state before retrying an uncertain upload or publication.
-10. For vague art direction in UI/UX, animation or 3D, call aesthetic_brief (detail=compact for the first triage, full only when detailed evidence is needed) to preserve exact human intent, design invariants, explicit avoid items and three reversible hypotheses. Avoid blanket UI routing just because English happy/appearance contains app. The helper is read-only and does not judge actual images. Inspect real screenshots, motion frames or model renders through authorized tools; produce actual artifact variants rather than only advice.
-11. Compare equivalent observed variants with technical evidence and human A/B judgments. aesthetic_review accepts detail=compact for a small initial result; neither mode inspects pictures or approves release. It only aggregates declared artifacts/checks/pseudonymous pairwise preferences. Keep speed, correctness and resource budgets, but do not claim a creative task complete if the delivered experience is not verified visually. Avoid applying taste review to routine unrelated engineering tasks.
-12. For macOS computer_laser, treat depth_budget/element_budget as incomplete evidence. To tolerate independent user cursor movement, use allow_external_cursor_drift_for_observe=true only when every step is an observe action. Never opt in for press, set_value or assertions. Report mouse_unchanged and focus_preserved honestly. Never turn uncertain UI mutations into verified successes.
+## Choose the direct useful path
+
+For a known small action, use its existing authorized tool. Discover unfamiliar actions compactly through `asympta_dispatch`; the live schema remains authoritative. Use `skills_sense` to select only relevant skills. No match means answer or work normally, not add a planning procedure.
+
+For substantial outcome-first reframing, professional methods or cross-disciplinary investigation, load [Grounded Ambition](../grounded-ambition/SKILL.md). Preserve the original task, exact artifact, creative intent, privacy and budget. A harder target is a hypothesis, not a guarantee. Do not use this skill on every command or for transformation-only requests.
+
+## Durable work and actual evidence
+
+Keep one canonical Work for a meaningful multi-step task. Capture the goal, constraints, acceptance, dependencies, resource ownership and finite budgets. Use bounded independent read batches only where supported by the current server; never insert writes, shell commands or remote actions into a read-only batch. Serialize conflicting writes and isolate independent workers.
+
+A tiny success receipt or tool acknowledgment is not proof that the user's outcome was accepted. Preserve the full evidence outside model context and expand only relevant failures. Read authoritative state before retrying a timed-out mutation; never blindly repeat uploads, pushes, publication or UI actions. Keep source/version identity and negative results.
+
+Use the existing singleton Terminal Dashboard to observe separately sourced Work and provider progress. Do not create another native Dashboard, take over active sessions or invent continuous execution. For Apple apps, implement a related batch, perform necessary release checks, distribute to the existing authorized TestFlight group, update the physical app and test the complete scene on that exact build. Compilation alone is not user-scene acceptance.
+
+## Quality and boundaries
+
+Use real images, references and appropriate human review for creative quality; a model self-score is not visual acceptance. Preserve locked style, typography, artwork and interaction requirements. Use original sources or data and independent validation for research. Report actual source revisions, changed artifacts, tests and remaining blockers without claiming unmeasured speed, accuracy, cost or creativity gains.
