@@ -1,7 +1,7 @@
 {
   "name": "asympta-computer",
-  "version": "0.16.9",
-  "description": "Durable Mac execution with predictive recovery, portable GitHub memory, Xcode, GitHub, TestFlight, background visual control, audit and long-running workflows.",
+  "version": "0.17.57",
+  "description": "Authorized Mac execution, durable tasks and evidence-based Grounded Ambition for deeper work without scope inflation.",
   "author": {
     "name": "Asympta",
     "url": "https://github.com/okok147"
@@ -23,7 +23,7 @@
   "interface": {
     "displayName": "Asympta Computer",
     "shortDescription": "Reliable private Mac execution for ChatGPT",
-    "longDescription": "Operate an authorized Mac through Asympta Computer: bounded coding/search, predictive recovery, durable jobs and flows, background Accessibility control, Xcode, GitHub and App Store Connect/TestFlight, with evidence-backed verification.",
+    "longDescription": "Operate an authorized Mac through Asympta Computer: bounded coding/search, predictive recovery, durable jobs and flows, background Accessibility control, Xcode, GitHub and App Store Connect/TestFlight, with evidence-backed verification. Includes Grounded Ambition: deepen consequential work through outcome-first planning, professional methods, relevant raw evidence and independent validation while preserving the requested artifact, scope and budget.",
     "developerName": "Asympta",
     "category": "Developer Tools",
     "capabilities": [
@@ -36,7 +36,8 @@
       "Restore my portable Asympta memory and continue from the latest durable state.",
       "Continue the current Asympta task using the fastest verified playbook.",
       "Build, verify, push, and distribute this Apple app to TestFlight.",
-      "Inspect the active durable tasks and recover anything interrupted."
+      "Inspect the active durable tasks and recover anything interrupted.",
+      "Apply Grounded Ambition to this task: preserve my deliverable and scope, choose the relevant raw evidence and methods, and verify the result independently."
     ],
     "brandColor": "#445198",
     "screenshots": [],

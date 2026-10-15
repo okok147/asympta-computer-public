@@ -1,3 +1,13 @@
+# v0.17.57 — Grounded Ambition plugin package
+
+This update packages the Grounded Ambition skill and its public source notes, links it from the main skill, and aligns portable, Codex and Claude manifests. It keeps the same plugin identity, MCP endpoints and capability permissions; it does not install another app or start an agent.
+
+Use Speed / Altitude / Depth / Range as selective methods for deeper work, not automatic scope expansion. Preserve requested creative artifacts, authorized data boundaries and finite budgets; distinguish stretch targets from verified feasibility, and validate with evidence beyond a model self-score.
+
+The public package contains only distribution metadata and reviewed skill instructions. Private runtime code, operator memory, device identifiers, credentials and local execution logs are not included. Server deployment, GitHub package publication, and platform-side installation/refresh are separate states. A successful publish does not prove that an already-open client has reloaded its skills; the stable existing MCP dispatch continues to query the live server.
+
+Package and routing tests check integrity and expected selection, not improved whole-agent performance. The earlier release notes below are historical and do not certify current platform-cache state.
+
 # v0.16.9 — Fast verified read-only MCP batching
 
 **Asympta Computer stays the same installed plugin** with only the two existing ChatGPT-facing control tools. A new approved **read_only_batch** action is available through the compatible existing asympta_dispatch op=call action=read_only_batch route, without requiring the client to recognize a new op name or install a new app.
