@@ -1,4 +1,4 @@
-# v0.17.75 — SubThread internal result inbox
+# v0.17.76 — SubThread internal result inbox
 
 Asympta records owned worker completion automatically. Main reads compact status at a natural checkpoint and expands only needed results or evidence. Workers require no extra message or waiting model turn. Durable read receipts suppress duplicates while keeping independent acceptance and pending-review/failure counts.
 
