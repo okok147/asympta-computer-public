@@ -1,3 +1,9 @@
+# v0.17.77 — Accurate parallel timing and bounded execution
+
+The private runtime now separates tool service work from measured wall-time coverage, keeps missing telemetry explicit, and adds a batched syntax-check path with native compatibility. Managed test runners inherit a bounded child-concurrency budget. Model-worker authorization remains unchanged.
+
+This repository distributes plugin metadata and reviewed instructions; private runtime code, local logs and operator data remain outside this package. Publication, live service deployment and client refresh are separate states. No end-to-end 10x performance claim is made.
+
 # v0.17.76 — SubThread internal result inbox
 
 Asympta records owned worker completion automatically. Main reads compact status at a natural checkpoint and expands only needed results or evidence. Workers require no extra message or waiting model turn. Durable read receipts suppress duplicates while keeping independent acceptance and pending-review/failure counts.
