@@ -19,6 +19,8 @@ For authorized SubThread work, let Asympta retain host completion records automa
 
 Use Linear only when requirements, external coordination, or explicit reporting need it. Keep routine internal result delivery inside Asympta, without a status-only model loop. Load [SubThread internal delivery](../cross-thread-orchestration/SKILL.md) when this workflow is relevant.
 
+For native Codex context/fork updates and large structured receipts, load [Native context alignment](references/native-codex-context.md). Explicit compact/full `budget_chars` returns bounded views; `receipt_read` JSON pointers rehydrate needed evidence. This does not restore model-worker authorization.
+
 ## Durable work and actual evidence
 
 Keep one canonical Work for a meaningful multi-step task. Capture the goal, constraints, acceptance, dependencies, resource ownership and finite budgets. Use bounded independent read batches only where supported by the current server; never insert writes, shell commands or remote actions into a read-only batch. Serialize conflicting writes and isolate independent workers.
