@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "asympta-computer",
-  "version": "0.17.57",
+  "version": "0.17.76",
   "description": "Authorized Mac execution, durable tasks and evidence-based Grounded Ambition for deeper work without scope inflation.",
   "author": {
     "name": "Asympta",
