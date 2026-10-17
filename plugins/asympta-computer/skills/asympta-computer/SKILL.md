@@ -13,6 +13,12 @@ For a known small action, use its existing authorized tool. Discover unfamiliar 
 
 For substantial outcome-first reframing, professional methods or cross-disciplinary investigation, load [Grounded Ambition](../grounded-ambition/SKILL.md). Preserve the original task, exact artifact, creative intent, privacy and budget. A harder target is a hypothesis, not a guarantee. Do not use this skill on every command or for transformation-only requests.
 
+## SubThread result inbox
+
+For authorized SubThread work, let Asympta retain host completion records automatically. Do not require workers to send main an extra success message or replay their transcript. At a natural checkpoint, main reads a bounded inbox, expands only the needed result or evidence, and records a read receipt. Completion and acknowledgement never grant acceptance; keep independent source review and verification. Preserve applicable worker suspensions and permissions.
+
+Use Linear only when requirements, external coordination, or explicit reporting need it. Keep routine internal result delivery inside Asympta, without a status-only model loop. Load [SubThread internal delivery](../cross-thread-orchestration/SKILL.md) when this workflow is relevant.
+
 ## Durable work and actual evidence
 
 Keep one canonical Work for a meaningful multi-step task. Capture the goal, constraints, acceptance, dependencies, resource ownership and finite budgets. Use bounded independent read batches only where supported by the current server; never insert writes, shell commands or remote actions into a read-only batch. Serialize conflicting writes and isolate independent workers.

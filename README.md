@@ -1,3 +1,11 @@
+# v0.17.75 — SubThread internal result inbox
+
+Asympta records owned worker completion automatically. Main reads compact status at a natural checkpoint and expands only needed results or evidence. Workers require no extra message or waiting model turn. Durable read receipts suppress duplicates while keeping independent acceptance and pending-review/failure counts.
+
+The inbox defaults to a 1,600-byte structured payload budget and adds no model or Linear calls. This does not measure total tokens, task cost, or end-to-end speed. Use Linear only when requirements, external coordination, or explicit reporting need it. Existing worker authorization and host suspensions remain in force.
+
+This package adds the reviewed [SubThread skill](plugins/asympta-computer/skills/cross-thread-orchestration/SKILL.md) and [operating reference](plugins/asympta-computer/skills/cross-thread-orchestration/references/subthread-inbox.md). Private runtime code, operator memory and execution logs remain outside this distribution. Package publication and platform-side skill refresh are separate states; use the existing live dispatch for current server capabilities.
+
 # v0.17.57 — Grounded Ambition plugin package
 
 This update packages the Grounded Ambition skill and its public source notes, links it from the main skill, and aligns portable, Codex and Claude manifests. It keeps the same plugin identity, MCP endpoints and capability permissions; it does not install another app or start an agent.
