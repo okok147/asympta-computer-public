@@ -38,6 +38,6 @@ For predictive findings or policy changes, freeze a historical baseline, prevent
 
 When the next observation is known, use its authorized tool directly. Use read-only `grounding_route` only when choosing the contact is genuinely unclear; it is advice, not proof. Preserve canonical Work evidence and uncertain-write/idempotency rules. Apple apps retain batch implementation -> minimum release checks -> TestFlight distribution -> full scene on that exact physical-device build; do not add per-edit test loops.
 
-The four axes are **search directions**, not new scores replacing Speed, Accuracy, Usage Saving, Taste and Creativity. This is a harness/skill change, not model training or a claim of improved intelligence. Measure benefits on comparable completed real tasks before claiming end-to-end gains.
+The four axes are **search directions**, not additional reporting metrics. Report exactly Speed, Accuracy/Quality and Usage Saving; treat Taste and Creativity as task-specific quality criteria. This is a harness/skill change, not model training or a claim of improved intelligence. Measure benefits on comparable completed real tasks before claiming end-to-end gains.
 
 [Source distinctions, examples and evaluation](references/methods-and-evidence.md) are optional depth, not default context.
