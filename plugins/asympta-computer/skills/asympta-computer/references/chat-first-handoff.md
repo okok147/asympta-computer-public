@@ -4,6 +4,8 @@ Updated 2026-10-29. The example optimization target is the SAME complete task co
 
 ## Choose the route before spending a Codex turn
 
+For capability/billing decisions, Work binding and bounded API workers, use [Chat/API workflow](chat-api-workflow.md). Discover the live route/worker actions before relying on them; transfer alone does not execute work or authorize spending.
+
 For substantial quota-heavy work, prefer an active regular ChatGPT conversation for planning, research, code authoring, image generation and review through its actually available native tools. Use Asympta only for authorized Mac/private repository/Xcode/device/Blender operations, durable deterministic commands and receipts. A task started in regular Chat does not need Codex merely to orchestrate it. Keep tiny Codex-native operations direct when handoff costs more. Preserve explicit user model/effort choices.
 
 OpenAI's official guidance says regular ChatGPT conversations should not consume the shared Codex/Work allowance, while ChatGPT Work and Codex do share that pool. Do NOT route to Work, a Codex subprocess, an App Server model turn or another Codex agent and call it quota saving. API requests have separate billing; explicit API configuration is not permission for unlimited automatic spending. Pro model, search and image tools have their own availability/limits.
