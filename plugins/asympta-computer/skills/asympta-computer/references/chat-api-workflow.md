@@ -8,7 +8,7 @@ Use native Chat tools for research, reasoning, code authoring, image generation 
 
 Discover the live manifest and exact action schema. Use `workflow_route` only when advertised, and bind its decision to canonical Work. A route decision does not launch or complete its chosen work. Discover `openai_task` separately; its selector is `operation`, not the outer dispatch/port `op`. A deployment candidate or a documentation entry is not proof that a live action exists.
 
-API text/code work has a minimum of `gpt-6.1-sol`; use a stronger available model when warranted. Never silently downgrade. This API floor does not erase explicit scoped Codex/model choices. Preserve **450000** for the configured compaction threshold.
+This Chat/API workflow and bounded `openai_task` retain the `sol_or_astra` default and `gpt-6.1-sol` floor. A separately authorized general-API request may explicitly use `model_policy:"adaptive"` for Terra/Sol/Astra; preserve stronger pinned requirements and explicit model/effort choices. Never silently downgrade. Preserve **450000** compaction. Optional `verified_exact` reuse requires matching accepted output SHA, evidence, policy/task context and freshness; caller attestation permits reuse, not Work or device acceptance.
 
 ## Current bounded worker
 
