@@ -5,7 +5,7 @@ description: Use Asympta Computer for authorized Mac execution, visible multi-ta
 
 # Asympta Computer
 
-Prefer native tools; use Asympta for Mac/private execution. For quota-heavy tasks use [Chat-first handoff](references/chat-first-handoff.md), with no hidden models. Preserve quality, acceptance and permissions; include validation/rework in costs.
+Prefer native tools; use Asympta for Mac/private execution. For quota-heavy tasks use [Chat-first handoff](references/chat-first-handoff.md), with no hidden models. Apply [Chat/API routing](references/chat-api-workflow.md). Preserve quality, acceptance and permissions; include validation/rework in costs.
 
 ## Choose the direct useful path
 
