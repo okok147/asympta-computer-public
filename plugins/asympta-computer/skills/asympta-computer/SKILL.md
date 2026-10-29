@@ -5,7 +5,7 @@ description: Use Asympta Computer for authorized Mac execution, visible multi-ta
 
 # Asympta Computer
 
-Use the existing connected Asympta tools, not another app or hidden model. Preserve requested quality and mandatory acceptance; count validation and rework in efficiency. Never infer permission from a skill or invent unavailable tools.
+Prefer native tools; use Asympta for Mac/private execution. For quota-heavy tasks use [Chat-first handoff](references/chat-first-handoff.md), with no hidden models. Preserve quality, acceptance and permissions; include validation/rework in costs.
 
 ## Choose the direct useful path
 
