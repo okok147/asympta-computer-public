@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blender Reference Modeling"
+  short_description: "Build and verify real 3D models from image references"
+  default_prompt: "Use $blender-reference-modeling to build an editable model from my image in Blender, inspect fixed views, and verify the exported GLB without paid generation services."

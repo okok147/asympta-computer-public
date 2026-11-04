@@ -9,6 +9,8 @@ Prefer native tools; use Asympta for Mac/private execution. For quota-heavy task
 
 ## Choose the direct useful path
 
+For image-reference 3D work without paid generation, use [Blender Reference Modeling](../blender-reference-modeling/SKILL.md): build in Blender, compare fixed views, inspect the GLB and verify the actual target website or game.
+
 For a known small action, use its existing authorized tool. Discover unfamiliar actions compactly through `asympta_dispatch`; the live schema remains authoritative. Use `skills_sense` to select only relevant skills. No match means answer or work normally, not add a planning procedure.
 
 For substantial outcome-first reframing, professional methods or cross-disciplinary investigation, load [Grounded Ambition](../grounded-ambition/SKILL.md). Preserve the original task, exact artifact, creative intent, privacy and budget. A harder target is a hypothesis, not a guarantee. Do not use this skill on every command or for transformation-only requests.
